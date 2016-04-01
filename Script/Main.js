@@ -20,6 +20,14 @@ FontMiddleSize = window.innerWidth*0.008;
 FontLargeSize = window.innerWidth*0.015;
 FontLargestSize = window.innerWidth*0.042;
 
+var IconSizeLittle = null;
+var IconSizeMiddle = null;
+var IconSizeLarge = null;
+
+IconSizeLittle = window.innerWidth*0.03125;
+IconSizeMiddle = window.innerWidth*0.04375;
+IconSizeLarge = window.innerWidth*0.05208;
+
 //Get the width blank 
 //var WidthBlank = document.getElementById('Title_Part').offsetHeight * 0.10;
 var WidthBlank = 0;
@@ -865,7 +873,7 @@ function DrawPieChart(MovieData)
 		.attr("transform", function(d,i)
 		{
 			var Xposition = window.innerWidth*0.06;
-			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + (i)*1.5*OutR + 20;
+			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + (i)*1.5*OutR + FontMiddleSize*1.2;
 			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
 			return CircleString;
 		})
