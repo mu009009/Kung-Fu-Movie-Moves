@@ -2,14 +2,14 @@ function SetIcon(IconName,PositionX,PositionY,R)
 {
 	console.log(PositionY);
 	d3.select('#'+IconName)
-//	.attr('width',function()
-//	{
-//		return R ;
-//	})
-//	.attr('height',function()
-//	{
-//		return R ;
-//	})
+	.attr('width',function()
+	{
+		return R + "px";
+	})
+	.attr('height',function()
+	{
+		return R + "px";
+	})
 	.style('margin-left',function()
 	{
 		var LeftPX = (document.getElementById('Main_Part').offsetWidth*0.31 + PositionX) + 'px';
