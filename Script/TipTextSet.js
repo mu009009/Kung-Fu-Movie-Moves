@@ -91,7 +91,7 @@ function MoveNumberText(Number)
 		.attr("id","NumberText")		
 		.attr('x',10 + "px")
 		.attr('y',function(){
-			return 80 + "px";
+			return FontMiddleSize*5 + "px";
 		})
 		.text(Number)
 		.style("font-size",FontLargestSize+"px")
@@ -143,7 +143,7 @@ function ForeverText()
 		.append("text")
 		.attr('x',10 + "px")
 		.attr('y',function(){
-			return 80 + "px";
+			return FontMiddleSize*5 + "px";
 		})
 		.text("Moves")
 		.style("font-size",FontLargestSize+"px")

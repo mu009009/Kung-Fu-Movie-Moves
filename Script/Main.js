@@ -526,42 +526,42 @@ function DrawColorHue()
 		.append('rect')
 		.attr('class','rect')
 		.style('y',function(){
-			return (windowHeight*0.25*0.7) - 90 + "px";
+			return (windowHeight*0.25*0.7) - FontMiddleSize*6 + "px";
 		})
 		.style('x',function(){
-			return 30 + "%";
+			return FontMiddleSize*2 + "%";
 		})
 		.style("fill",OffensiveColor)
-		.attr("width",20+"px")
-		.attr("height",30+"px")
+		.attr("width",FontLittleSize*2+"px")
+		.attr("height",FontMiddleSize*2+"px")
 		.style("opacity",1);
 	
 	var DefensivetHue = d3.select('#ColorHue_Part')
 		.append('rect')
 		.attr('class','rect')
 		.style('y',function(){
-			return (windowHeight*0.25*0.7) - 60 + "px";
+			return (windowHeight*0.25*0.7) - FontMiddleSize*4 + "px";
 		})
 		.style('x',function(){
-			return 30 + "%";
+			return FontMiddleSize*2 + "%";
 		})
 		.style("fill",DefensiveColor)
-		.attr("width",20+"px")
-		.attr("height",30+"px")
+		.attr("width",FontLittleSize*2+"px")
+		.attr("height",FontMiddleSize*2+"px")
 		.style("opacity",1);
 	
 	var HurtHue = d3.select('#ColorHue_Part')
 		.append('rect')
 		.attr('class','rect')
 		.style('y',function(){
-			return (windowHeight*0.25*0.7) - 30 + "px";
+			return (windowHeight*0.25*0.7) - FontMiddleSize*2 + "px";
 		})
 		.style('x',function(){
-			return 30 + "%";
+			return FontMiddleSize*2 + "%";
 		})
 		.style("fill",HurtColor)
-		.attr("width",20+"px")
-		.attr("height",30+"px")
+		.attr("width",FontLittleSize*2+"px")
+		.attr("height",FontMiddleSize*2+"px")
 		.style("opacity",1);
 	
 	var OtherHue = d3.select('#ColorHue_Part')
@@ -571,11 +571,11 @@ function DrawColorHue()
 			return windowHeight*0.25*0.7 + "px";
 		})
 		.style('x',function(){
-			return 30 + "%";
+			return FontMiddleSize*2 + "%";
 		})
 		.style("fill",OtherColor)
-		.attr("width",20+"px")
-		.attr("height",30+"px")
+		.attr("width",FontLittleSize*2+"px")
+		.attr("height",FontMiddleSize*2+"px")
 		.style("opacity",1);
 }
 
@@ -592,21 +592,21 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return 22 + "%";
+			return FontLittleSize*2 + "%";
 		})
 		.attr("height",function(){
-			return 30 + "px"
+			return FontMiddleSize*2 + "px"
 		})
 		.attr("y",function(){
-			return windowHeight*0.25*0.7 -90 + 10 + "px";
+			return windowHeight*0.25*0.7 -90 + FontLittleSize + "px";
 		})
 		.attr("x",function(){
 			return  document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
 		})
 		.append("text")
-		.attr('x',10 + "px")
+		.attr('x',FontLittleSize + "px")
 		.attr('y',function(){
-			return 15 + "px";
+			return FontMiddleSize + "px";
 		})
 		.text("Offensive Kung Fu Moves")
 		.style("font-size",FontLittleSize+"px")
@@ -616,21 +616,21 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return 22 + "%";
+			return FontLittleSize*2 + "%";
 		})
 		.attr("height",function(){
-			return 30 + "px"
+			return FontMiddleSize*2 + "px"
 		})
 		.attr("y",function(){
-			return windowHeight*0.25*0.7 - 60 + 10 + "px";
+			return windowHeight*0.25*0.7 - 60 + FontLittleSize + "px";
 		})
 		.attr("x",function(){
 			return  document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
 		})
 		.append("text")
-		.attr('x',10 + "px")
+		.attr('x',FontLittleSize + "px")
 		.attr('y',function(){
-			return 15 + "px";
+			return FontMiddleSize + "px";
 		})
 		.text("Defensive Kung Fu Moves")
 		.style("font-size",FontLittleSize+"px")
@@ -640,10 +640,10 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return 22 + "%";
+			return FontLittleSize*2 + "%";
 		})
 		.attr("height",function(){
-			return 30 + "px"
+			return FontMiddleSize*2 + "px"
 		})
 		.attr("y",function(){
 			return windowHeight*0.25*0.7 - 30 + 10 + "px";
@@ -652,9 +652,9 @@ function TextInfo()
 			return document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
 		})
 		.append("text")
-		.attr('x',10 + "px")
+		.attr('x',FontLittleSize + "px")
 		.attr('y',function(){
-			return 15 + "px";
+			return FontMiddleSize + "px";
 		})
 		.text("Moves cause hurt")
 		.style("font-size", FontLittleSize+"px")
@@ -664,21 +664,21 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return 22 + "%";
+			return FontLittleSize*2 + "%";
 		})
 		.attr("height",function(){
-			return 30 + "px"
+			return FontMiddleSize*2 + "px"
 		})
 		.attr("y",function(){
-			return windowHeight*0.25*0.7 + 10 + "px";
+			return windowHeight*0.25*0.7 + FontLittleSize + "px";
 		})
 		.attr("x",function(){
 			return document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
 		})
 		.append("text")
-		.attr('x',10 + "px")
+		.attr('x',FontLittleSize + "px")
 		.attr('y',function(){
-			return 15 + "px";
+			return FontMiddleSize + "px";
 		})
 		.text("Other Kung Fu Moves")
 		.style("font-size",FontLittleSize+"px")
