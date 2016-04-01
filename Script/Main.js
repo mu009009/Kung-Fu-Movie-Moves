@@ -526,10 +526,10 @@ function DrawColorHue()
 	var OffensiveHue = d3.select('#ColorHue_Part')
 		.append('rect')
 		.attr('class','rect')
-		.style('y',function(){
+		.attr('y',function(){
 			return (windowHeight*0.25*0.7) - FontMiddleSize*6 + "px";
 		})
-		.style('x',function(){
+		.attr('x',function(){
 			return window.innerWidth*0.25 - FontLittleSize*5 + "px";
 		})
 		.style("fill",OffensiveColor)
@@ -540,10 +540,10 @@ function DrawColorHue()
 	var DefensivetHue = d3.select('#ColorHue_Part')
 		.append('rect')
 		.attr('class','rect')
-		.style('y',function(){
+		.attr('y',function(){
 			return (windowHeight*0.25*0.7) - FontMiddleSize*4 + "px";
 		})
-		.style('x',function(){
+		.attr('x',function(){
 			return window.innerWidth*0.25 - FontLittleSize*5 + "px";
 		})
 		.style("fill",DefensiveColor)
@@ -554,10 +554,10 @@ function DrawColorHue()
 	var HurtHue = d3.select('#ColorHue_Part')
 		.append('rect')
 		.attr('class','rect')
-		.style('y',function(){
+		.attr('y',function(){
 			return (windowHeight*0.25*0.7) - FontMiddleSize*2 + "px";
 		})
-		.style('x',function(){
+		.attr('x',function(){
 			return window.innerWidth*0.25 - FontLittleSize*5 + "px";
 		})
 		.style("fill",HurtColor)
@@ -568,10 +568,10 @@ function DrawColorHue()
 	var OtherHue = d3.select('#ColorHue_Part')
 		.append('rect')
 		.attr('class','rect')
-		.style('y',function(){
+		.attr('y',function(){
 			return windowHeight*0.25*0.7 + "px";
 		})
-		.style('x',function(){
+		.attr('x',function(){
 			return window.innerWidth*0.25 - FontLittleSize*5 + "px";
 		})
 		.style("fill",OtherColor)
