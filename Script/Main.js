@@ -10,6 +10,16 @@ var StarringHeightPercentage = 0.14;
 var KeyWord = null;
 KeyWord = "Tragedy";
 
+var FontLittleSize = null;
+var FontMiddleSize = null;
+var FontLargeSize = null;
+var FontLargestSize = null;
+
+FontLittleSize = window.innerWidth*0.006;
+FontMiddleSize = window.innerWidth*0.008;
+FontLargeSize = window.innerWidth*0.015;
+FontLargestSize = window.innerWidth*0.042;
+
 //Get the width blank 
 //var WidthBlank = document.getElementById('Title_Part').offsetHeight * 0.10;
 var WidthBlank = 0;
@@ -591,7 +601,7 @@ function TextInfo()
 			return 15 + "px";
 		})
 		.text("Offensive Kung Fu Moves")
-		.style("font-size",12+"px")
+		.style("font-size",FontLittleSize+"px")
 		.style("fill","white");	
 	
 	var DefensivePartText = d3.select('#ColorHue_Part')
@@ -615,7 +625,7 @@ function TextInfo()
 			return 15 + "px";
 		})
 		.text("Defensive Kung Fu Moves")
-		.style("font-size",12+"px")
+		.style("font-size",FontLittleSize+"px")
 		.style("fill","white");	
 	
 	var HurtPartText = d3.select('#ColorHue_Part')
@@ -639,7 +649,7 @@ function TextInfo()
 			return 15 + "px";
 		})
 		.text("Moves cause hurt")
-		.style("font-size",12+"px")
+		.style("font-size", FontLittleSize+"px")
 		.style("fill","white");	
 	
 	var OtherPartText = d3.select('#ColorHue_Part')
@@ -663,7 +673,7 @@ function TextInfo()
 			return 15 + "px";
 		})
 		.text("Other Kung Fu Moves")
-		.style("font-size",12+"px")
+		.style("font-size",FontLittleSize+"px")
 		.style("fill","white");		
 }
 
@@ -825,7 +835,7 @@ function DrawPieChart(MovieData)
 	
 	var InnerText = InnerTextData
 		.append('text')
-		.style("font-size", 15+"px")
+		.style("font-size", FontMiddleSize+"px")
 		.style("fill","white")
 		.attr("text-anchor","middle")
 		.attr("transform", function(d,i)
@@ -845,7 +855,7 @@ function DrawPieChart(MovieData)
 	
 	var InnerTextInfo = InnerTextData
 		.append('text')
-		.style("font-size", 15+"px")
+		.style("font-size", FontMiddleSize+"px")
 		.style("fill","white")
 		.attr("id",function(d)
 		{
