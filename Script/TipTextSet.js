@@ -180,8 +180,8 @@ function StarringTips(StarringName,StarringKungFuNo)
 	
 	var StarringText = StarringTipsSvg
 	.append('text')
-	.attr('x',10)
-	.attr('y',15)
+	.attr('x',FontLittleSize)
+	.attr('y',FontMiddleSize)
 	.style("font-size",FontLittleSize+"px")
 	.style("fill","white");
 	
@@ -192,8 +192,11 @@ function StarringTips(StarringName,StarringKungFuNo)
 	.data(NewString)
 	.enter()
 	.append('tspan')
-	.attr('x',10)
-	.attr('dy','1.2em')
+	.attr('x',FontLittleSize)
+	.attr('dy',function()
+	{
+		return FontLittleSize*1.5 + 'px';
+	})
 	.text(function(d)
 	{
 		return d;

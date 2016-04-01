@@ -428,14 +428,14 @@ function DrawFollowPart(Movies)
 	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').offsetWidth;
 	if((document.getElementById(IconName).offsetHeight)>AtackMoveHeight/2)
 		{
-			IconPositionY = (windowHeight*TopBlank+AtackMoveHeight/2-document.getElementById(IconName).offsetHeight);
+			IconPositionY = (windowHeight*TopBlank+AtackMoveHeight/2-IconSizeMiddle);
 		}
 	else
 		{
 			IconPositionY = (windowHeight*TopBlank);
 		}
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeMiddle);
-	TipTextSet("Punches",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);
+	TipTextSet("Punches",IconPositionX,IconPositionY+0.8*IconSizeMiddle);
 
 	PreviousBarHeigh = PreviousBarHeigh + HandMovesHeight;
 //Punchese Moves End--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -497,10 +497,10 @@ function DrawFollowPart(Movies)
 		}
 	else
 		{
-			IconPositionY = (windowHeight*TopBlank+AtackMoveHeight - (document.getElementById(IconName).offsetHeight));
+			IconPositionY = (windowHeight*TopBlank+AtackMoveHeight - IconSizeMiddle);
 		}	
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeMiddle);
-	TipTextSet("Kicking",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);
+	TipTextSet("Kicking",IconPositionX,IconPositionY+0.8*IconSizeMiddle);
 
 	PreviousBarHeigh = PreviousBarHeigh + KickMovesHeight;
 //Kick Moves End------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -558,14 +558,14 @@ function DrawFollowPart(Movies)
 	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').offsetWidth;
 	if((document.getElementById(IconName).offsetHeight)>DefenseMoveHeight/2)
 		{
-			IconPositionY = (windowHeight*2*TopBlank+AtackMoveHeight+DefenseMoveHeight/2 - (document.getElementById(IconName).offsetHeight));
+			IconPositionY = (windowHeight*2*TopBlank+AtackMoveHeight+DefenseMoveHeight/2 - IconSizeMiddle);
 		}
 	else
 		{
 			IconPositionY = (windowHeight*2*TopBlank+AtackMoveHeight);
 		}		
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeMiddle);	
-	TipTextSet("Blocking",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);
+	TipTextSet("Blocking",IconPositionX,IconPositionY+0.8*IconSizeMiddle);
 		
 	PreviousBarHeigh = PreviousBarHeigh + BlockMovesHeight;
 	
@@ -627,11 +627,11 @@ function DrawFollowPart(Movies)
 		}
 	else
 		{
-			IconPositionY = (windowHeight*2*TopBlank+AtackMoveHeight+DefenseMoveHeight - (document.getElementById(IconName).offsetHeight));
+			IconPositionY = (windowHeight*2*TopBlank+AtackMoveHeight+DefenseMoveHeight - IconSizeMiddle);
 		}	
 //	IconPositionY = (windowHeight * 2 * TopBlank) + AtackMoveHeight + BlockMovesHeight;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeMiddle);	
-	TipTextSet("Evading",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);
+	TipTextSet("Evading",IconPositionX,IconPositionY+0.8*IconSizeMiddle);
 	
 	PreviousBarHeigh = PreviousBarHeigh + EvadeMovesHeight;	
 //Evade Moves End-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -689,7 +689,7 @@ function DrawFollowPart(Movies)
 	IconPositionX = (BlankWidth - BarBlank + 3*Barwidth)*document.getElementById('Follow_Part').offsetWidth;
 	if((document.getElementById(IconName).offsetHeight)>HurtMovesHeight/2)
 		{
-			IconPositionY = (windowHeight*3*TopBlank+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight/2-(document.getElementById(IconName).offsetHeight));
+			IconPositionY = (windowHeight*3*TopBlank+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight/2-IconSizeLittle);
 		}
 	else
 		{
@@ -698,7 +698,7 @@ function DrawFollowPart(Movies)
 //	IconPositionY = (windowHeight * 3 * TopBlank) + AtackMoveHeight + DefenseMoveHeight + NoBloodMovesHeight - 1.2*document.getElementById(IconName).offsetHeight;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeLittle);
 	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').offsetWidth;	
-	TipTextSet("No bleeding",IconPositionX,IconPositionY+0.9*document.getElementById(IconName).offsetHeight);
+	TipTextSet("No bleeding",IconPositionX,IconPositionY+0.9*IconSizeLittle);
 
 	PreviousBarHeigh = PreviousBarHeigh + NoBloodMovesHeight;
 	
@@ -761,12 +761,12 @@ function DrawFollowPart(Movies)
 		}
 	else
 		{
-			IconPositionY = (windowHeight*3*TopBlank+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight-(document.getElementById(IconName).offsetHeight));
+			IconPositionY = (windowHeight*3*TopBlank+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight-IconSizeMiddle);
 		}		
 //	IconPositionY = (windowHeight * 3 * TopBlank) + AtackMoveHeight + DefenseMoveHeight + NoBloodMovesHeight - document.getElementById(IconName).offsetHeight/4;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeMiddle);
 //	IconPositionY = (windowHeight * 3 * TopBlank) + AtackMoveHeight + DefenseMoveHeight + NoBloodMovesHeight - document.getElementById(IconName).offsetHeight/4;
-	TipTextSet("Bleeding",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);
+	TipTextSet("Bleeding",IconPositionX,IconPositionY+0.8*IconSizeMiddle);
 		
 	PreviousBarHeigh = PreviousBarHeigh + BloodMovesHeight;
 
@@ -831,7 +831,7 @@ function DrawFollowPart(Movies)
 	IconPositionX = (BlankWidth - BarBlank )*document.getElementById('Follow_Part').offsetWidth;
 	if((document.getElementById(IconName).offsetHeight)>OtherMovesHeight/2)
 		{
-			IconPositionY = (windowHeight*(4*TopBlank+1*TwodSecondTopBlank)+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight+OtherMovesHeight/2-(document.getElementById(IconName).offsetHeight));
+			IconPositionY = (windowHeight*(4*TopBlank+1*TwodSecondTopBlank)+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight+OtherMovesHeight/2-IconSizeMiddle);
 		}
 	else
 		{
@@ -840,7 +840,7 @@ function DrawFollowPart(Movies)
 //	IconPositionY = (windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank)) + AtackMoveHeight + DefenseMoveHeight + HurtMovesHeight + PrepareMovesHeight - document.getElementById(IconName).offsetHeight;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeMiddle);
 //	IconPositionY = (windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank)) + AtackMoveHeight + DefenseMoveHeight + HurtMovesHeight + PrepareMovesHeight - document.getElementById(IconName).offsetHeight;
-	TipTextSet("Preparing",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);
+	TipTextSet("Preparing",IconPositionX,IconPositionY+0.8*IconSizeMiddle);
 
 	PreviousBarHeigh = PreviousBarHeigh + PrepareMovesHeight;
 	
@@ -906,11 +906,11 @@ function DrawFollowPart(Movies)
 		}
 	else
 		{
-			IconPositionY = (windowHeight*(4*TopBlank+1*TwodSecondTopBlank)+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight+OtherMovesHeight)-(document.getElementById(IconName).offsetHeight);
+			IconPositionY = (windowHeight*(4*TopBlank+1*TwodSecondTopBlank)+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight+OtherMovesHeight)-IconSizeMiddle;
 		}	
 //	IconPositionY = (windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank)) + AtackMoveHeight + DefenseMoveHeight + HurtMovesHeight + PrepareMovesHeight;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeMiddle);
-	TipTextSet("Jumping",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);
+	TipTextSet("Jumping",IconPositionX,IconPositionY+0.8*IconSizeMiddle);
 	
 	PreviousBarHeigh = PreviousBarHeigh + JumpMovesHeight;
 	PreviousBarHeigh = 0;
@@ -1129,10 +1129,10 @@ function DrawFollowPart(Movies)
 	
 	IconName = "Head";
 	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').offsetWidth;
-	IconPositionY = (windowHeight*TopBlank + HeadMovesHeight/2) - document.getElementById(IconName).offsetHeight/2;
+	IconPositionY = (windowHeight*TopBlank + HeadMovesHeight/2) - IconSizeLarge/2;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeLarge);
 	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').offsetWidth;
-	SecondTipTextSet("Hit on head",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);
+	SecondTipTextSet("Hit on head",IconPositionX,IconPositionY+0.8*IconSizeLarge);
 	
 	PreviousBarHeigh = PreviousBarHeigh + HeadMovesHeight;
 	
@@ -1356,9 +1356,9 @@ function DrawFollowPart(Movies)
 	
 	IconName = "Body";
 	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').offsetWidth;
-	IconPositionY = (windowHeight*2*TopBlank + HeadMovesHeight + BodyMovesHeight/2) - document.getElementById(IconName).offsetHeight/2;
+	IconPositionY = (windowHeight*2*TopBlank + HeadMovesHeight + BodyMovesHeight/2) - IconSizeLarge/2;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeLarge);
-	SecondTipTextSet("Hit on body",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);	
+	SecondTipTextSet("Hit on body",IconPositionX,IconPositionY+0.8*IconSizeLarge);	
 	
 	PreviousBarHeigh = PreviousBarHeigh + BodyMovesHeight;
 //Body Moves End-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -1533,9 +1533,9 @@ function DrawFollowPart(Movies)
 	
 	IconName = "JointCapture";
 	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').offsetWidth;
-	IconPositionY = (windowHeight*3*TopBlank + HeadMovesHeight + BodyMovesHeight + JointMovesHeight/2) - document.getElementById(IconName).offsetHeight/2;
+	IconPositionY = (windowHeight*3*TopBlank + HeadMovesHeight + BodyMovesHeight + JointMovesHeight/2) - IconSizeLarge/2;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeLarge);
-	SecondTipTextSet("Hit on joint or capture",IconPositionX,IconPositionY+0.8*document.getElementById(IconName).offsetHeight);	
+	SecondTipTextSet("Hit on joint or capture",IconPositionX,IconPositionY+0.8*IconSizeLarge);	
 		
 	PreviousBarHeigh = PreviousBarHeigh + JointMovesHeight;
 	PreviousBarHeigh = 0;	
