@@ -505,14 +505,15 @@ function DrawColorHue()
 		.attr("id","ColorHue_Part")	
 		.style('margin-left',function()
 		{
-			return document.getElementById('Main_Part').offsetWidth*0.855 + 'px';
+//			return document.getElementById('Main_Part').offsetWidth*0.855 + 'px';
+			return window.innerWidth*0.75+"px";
 		})
 		.style('margin-top',function(){
 			return 0.75 * windowHeight + "px";
 		})
 		.style("position", "absolute")
 		.attr("width",function(){
-			return window.innerWidth*0.40 + "px";
+			return window.innerWidth*0.25 + "px";
 		})
 		.attr("height",function(){
 			return windowHeight*0.25 + "px";
@@ -529,7 +530,7 @@ function DrawColorHue()
 			return (windowHeight*0.25*0.7) - FontMiddleSize*6 + "px";
 		})
 		.style('x',function(){
-			return FontMiddleSize*2 + "%";
+			return window.innerWidth*0.25 - FontLittleSize*5 + "px";
 		})
 		.style("fill",OffensiveColor)
 		.attr("width",FontLittleSize*2+"px")
@@ -543,7 +544,7 @@ function DrawColorHue()
 			return (windowHeight*0.25*0.7) - FontMiddleSize*4 + "px";
 		})
 		.style('x',function(){
-			return FontMiddleSize*2 + "%";
+			return window.innerWidth*0.25 - FontLittleSize*5 + "px";
 		})
 		.style("fill",DefensiveColor)
 		.attr("width",FontLittleSize*2+"px")
@@ -557,7 +558,7 @@ function DrawColorHue()
 			return (windowHeight*0.25*0.7) - FontMiddleSize*2 + "px";
 		})
 		.style('x',function(){
-			return FontMiddleSize*2 + "%";
+			return window.innerWidth*0.25 - FontLittleSize*5 + "px";
 		})
 		.style("fill",HurtColor)
 		.attr("width",FontLittleSize*2+"px")
@@ -571,7 +572,7 @@ function DrawColorHue()
 			return windowHeight*0.25*0.7 + "px";
 		})
 		.style('x',function(){
-			return FontMiddleSize*2 + "%";
+			return window.innerWidth*0.25 - FontLittleSize*5 + "px";
 		})
 		.style("fill",OtherColor)
 		.attr("width",FontLittleSize*2+"px")
@@ -592,16 +593,16 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return FontLittleSize*2 + "%";
+			return FontLittleSize*12 + "px";
 		})
 		.attr("height",function(){
-			return FontMiddleSize*2 + "px"
+			return FontMiddleSize*3 + "px"
 		})
 		.attr("y",function(){
-			return windowHeight*0.25*0.7 -90 + FontLittleSize + "px";
+			return windowHeight*0.25*0.7 - FontMiddleSize*6 + FontLittleSize + "px";
 		})
 		.attr("x",function(){
-			return  document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
+			return window.innerWidth*0.25 - FontLittleSize*20 + "px";
 		})
 		.append("text")
 		.attr('x',FontLittleSize + "px")
@@ -616,16 +617,16 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return FontLittleSize*2 + "%";
+			return FontLittleSize*12 + "px";
 		})
 		.attr("height",function(){
-			return FontMiddleSize*2 + "px"
+			return FontMiddleSize*3 + "px"
 		})
 		.attr("y",function(){
-			return windowHeight*0.25*0.7 - 60 + FontLittleSize + "px";
+			return windowHeight*0.25*0.7 - FontMiddleSize*4 + FontLittleSize + "px";
 		})
 		.attr("x",function(){
-			return  document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
+			return window.innerWidth*0.25 - FontLittleSize*20 + "px";
 		})
 		.append("text")
 		.attr('x',FontLittleSize + "px")
@@ -640,16 +641,16 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return FontLittleSize*2 + "%";
+			return FontLittleSize*12 + "px";
 		})
 		.attr("height",function(){
-			return FontMiddleSize*2 + "px"
+			return FontMiddleSize*3 + "px"
 		})
 		.attr("y",function(){
-			return windowHeight*0.25*0.7 - 30 + 10 + "px";
+			return windowHeight*0.25*0.7 - FontMiddleSize*2 + FontLittleSize + "px";
 		})
 		.attr("x",function(){
-			return document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
+			return window.innerWidth*0.25 - FontLittleSize*20 + "px";
 		})
 		.append("text")
 		.attr('x',FontLittleSize + "px")
@@ -664,16 +665,16 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return FontLittleSize*2 + "%";
+			return FontLittleSize*12 + "px";
 		})
 		.attr("height",function(){
-			return FontMiddleSize*2 + "px"
+			return FontMiddleSize*3 + "px"
 		})
 		.attr("y",function(){
 			return windowHeight*0.25*0.7 + FontLittleSize + "px";
 		})
 		.attr("x",function(){
-			return document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
+			return window.innerWidth*0.25 - FontLittleSize*20 + "px";
 		})
 		.append("text")
 		.attr('x',FontLittleSize + "px")
