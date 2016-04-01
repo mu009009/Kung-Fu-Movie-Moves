@@ -6,7 +6,9 @@ var marginTopForMidPart = 0.0;
 
 var ImageMarginTop = 0.125;
 var PosterHeightPercentage = 0.625;
+var StarringHeightPercentage = 0.14;
 var KeyWord = null;
+KeyWord = "Tragedy";
 
 //Get the width blank 
 //var WidthBlank = document.getElementById('Title_Part').offsetHeight * 0.10;
@@ -22,9 +24,13 @@ var FullPosterHeight = 0;
 var UnitWidth = 0.04;
 
 var PosterPosition = "data/Images/";
+var StarringName =null;
 var PosterName = PosterPosition + "The_Big_Boss.jpg";
 
 var durationTime = 1800;
+var TotalKungFunumber = null;
+
+var MovieData = null;
 
 //Set the inital height of the Mid bottom part;
 d3.select('#Main_Part')
@@ -67,11 +73,12 @@ Dataload();
 //Controling the data
 function dataLoaded(err,Movies)
 {	
-	var MovieData = Movies;
+	MovieData = Movies;
+	DrawPieChart(MovieData);
 	console.log(MovieData);
 	if(KeyWord!="")
 		{
-			 DrawPieChart(MovieData);
+			 
 		}	
 }
 
@@ -80,84 +87,82 @@ function parse(d)
 {	
 	var Movies = {};
 	
-	Movies.type = d.Type;//The Type of the movie;	
-	Movies.TMoves = +d.TotalMoves;//The Kung Fu moves Number in this movie;
-	Movies.TKFTime = +d.TotalKungFuTime;//The Time Perform Kung Fu in this movie;
-	Movies.TPTime = +d.TotalProtagonistTime;//The Time the protagonist perform Kung Fu in this movie;
-	Movies.PName = d.ProtagonistName;//The Name of the Protagonist;
-	Movies.ATKMoveNo = +d.TotalAttackMoves;//The Number of the Moves show the information of offensive;
-	Movies.DEFMoveNo = +d.TotalDefenseMoves;//The Number of the Moves show the information of defensive;
-	Movies.OMoveNo = +d.TotalOtherMoves;//The Number of the Moves show something else, neither offensive nor defensive;
-	Movies.THMovesNo = +d.TotalHurtMoves;//The Number of the Moves show the Protagonist or his friend get hurt;
-	Movies.ATKHMovesNo = +d.AttackHandMoves;//The Number of the Moves perform by hand and show some offensive information;
-	Movies.ATKKMovesNo = +d.AttackKickMoves;//The Number of the Moves perform by leg and show some offensive information;
-	Movies.ATKHHMovesNo = +d.ATKHHeadMoves;//The Number of those Moves using hand to attack the enemies' head;
-	Movies.ATKHBMovesNo = +d.ATKHBodyMoves;//The Number of Those Moves using hand to attack the enemies' body;
-	Movies.ATKHJMovesNo = +d.ATKHJointMoves;//The Number of Those Moves using hand to attack the enemies' joint or grap them;
-	Movies.ATKKHMovesNo = +d.ATKKHeadMoves;//The Number of Those Moves using kick to attack the enemies' head;
-	Movies.ATKKBMovesNo = +d.ATKKBodyMoves;//The Number of Those Moves using kick to attack the enemies' body;
-	Movies.ATKKJMovesNo = +d.ATKKJointMoves;//The Number of Those Moves using kick to attack the enemies' joint or let them down;
-	Movies.DEFBMovesNo = +d.DEFBlockMoves;//The Number of Those blocking moves;
-	Movies.DEFEMovesNo = +d.DEFEvadeMoves;//The Number of Those evading moves;
-	Movies.DEFBHMovesNo = +d.DEFBHeadMoves;//The Number of Those blocking moves help protect the head;
-	Movies.DEFBBMovesNo = +d.DEFBBodyMoves;//The Number of Those blocking moves help protect the body;
-	Movies.DEFHMovesNo = +d.DEFEHeadMoves;//The Number of Those moves help protect the head;
-	Movies.DEFEBMovesNo = +d.DEFEBodyMoves;//The Number of Those moves help protect the body;
-	Movies.HBMovesNo = +d.HurtBloodMoves;//The Number of Those moves lead the protagonist or his friend get hurt and bleeding;
-	Movies.HNBMovesNo = +d.HurtNoBloodMoves;//The Number of Those moves lead the protagonist or his friend get hurt but without bleeding;
-	Movies.HBHMovesNo = +d.HBHeadMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their head and bleeding;
-	Movies.HBBMovesNo = +d.HBBodyMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their body and bleeding;
-	Movies.HBJMovesNo = +d.HBJointMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their joint or grap them and bleeding;
-	Movies.HNBHeadMovesNo = +d.HNBHeadMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their head but without bleeding;
-	Movies.HNBodyBMovesNo = +d.HNBBodyMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their body but without bleeding;
-	Movies.HNBJointMovesNo = +d.HNBJointMoves;//The Number of Those moves lead the protagonist orhis friend get hurt on their joint or grap them but without bleeding;
-	Movies.THeadMovesNo = +d.TotalHeadMoves;//The Number of those moves attack or hurt the head;
-	Movies.TBodyMovesNo = +d.TotalBodyMoves;//The Number of Those moves attack or hurt the body;
-	Movies.TJointMovesNo = +d.TotalJointMoves;//The Number of Those moves attack or hurt the joint;
-	Movies.TPMovesNo = +d.TotalProtagonistMoves;//The Number of the moves preformed by the protagonist;
-	Movies.TNPMovesNo = +d.TotalNoProtagonistMoves;//The Number of the moves not preformed by the protagonist;
-	Movies.TPBHMovesNo = +d.TPBHeadMoves;//The Number of the moves preformed by the protagonist, and he block the enemies' attack, protect his head;
-	Movies.TPBBMovesNo = +d.TPBBodyMoves;//The Number of the moves preformed by the protagonist, and he block the enemies' attack, protect his body;
-	Movies.TPEHMovesNo = +d.TPEHeadMoves;//The Number of the moves preformed by the protagonist, and he evade the enemies' attack, protect his head;
-	Movies.TPEBMovesNo = +d.TPEBodyMoves;//The Number of the moves preformed by the protagonist, and he block the enemies' attack, protect his body;
-	Movies.TPKHMovesNo = +d.TPKHeadMoves;//The Number of the moves preformed by the protagonist, and he kick the enemies' head;
-	Movies.TPKBMovesNo = +d.TPKBodyMoves;//The Number of the moves preformed by the protagonist, and he kick the enemies' body;
-	Movies.TPKJMovesNo = +d.TPKJointMoves;//The Number of the moves preformed by the protagonist, and he kick the enemies' joint;
-	Movies.TPHHMovesNo = +d.TPHHeadMoves;//The Number of the moves preformed by the protagonist, and he punch the enemies' head;
-	Movies.TPHBMovesNo = +d.TPHBodyMoves;//The Number of the moves preformed by the protagonist, and he punch the enemies' body;
-	Movies.TPHJMovesNo = +d.TPHJointMoves;//The Number of the moves preformed by the protagonist, and he punch the enemies' joint;
-	Movies.TPPMovesNo = +d.TPPrepareMoves;//The Number of the moves preformed by the protagonist, and he is preparing the battle;
-	Movies.TPJMovesNo = +d.TPJumpMoves;//The Number of the moves preformed by the protagonist, and he show his jumping skill;
-	Movies.TPHBHMovesNo = +d.TPHBHeadMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his head and bleeding;
-	Movies.TPHBBMovesNo = +d.TPHBBodyMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his body and bleeding;
-	Movies.TPHBJMovesNo = +d.TPHBJointMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his joint and bleeding;
-	Movies.TPHNBHMovesNo = +d.TPHNBHeadMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his head but without bleeding;
-	Movies.TPHNBBMovesNo = +d.TPHNBBodyMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his body but without bleeding;
-	Movies.TPHNBJMovesNo = +d.TPHNBJointMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his joint but without bleeding;
-	Movies.TOBHMovesNo = +d.TOBHeadMoves;//The Number of the moves not preformed by the protagonist, and they block the enemies' attack, protect their head;
-	Movies.TOBBMovesNo = +d.TOBBodyMoves;//The Number of the moves not preformed by the protagonist, and they block the enemies' attack, protect their body;
-	Movies.TOEHMovesNo = +d.TOEHeadMoves;//The Number of the moves not preformed by the protagonist, and they evade the enemies' attack, protect their head;
-	Movies.TOEBMovesNo = +d.TOEBodyMoves;//The Number of the moves not preformed by the protagonist, and they evade the enemies' attack, protect their body;
-	Movies.TOKHMovesNo = +d.TOKHeadMoves;//The Number of the moves not preformed by the protagonist, and they kick the enemies' head;
-	Movies.TOKBMovesNo = +d.TOKBodyMoves;//The Number of the moves not preformed by the protagonist, and they kick the enemies' body;
-	Movies.TOKJMovesNo = +d.TOKJointMoves;//The Number of the moves not preformed by the protagonist, and they kick the enemies' joint;
-	Movies.TOHHMovesNo = +d.TOHHeadMoves;//The Number of the moves not preformed by the protagonist, and they punch the enemies' head;
-	Movies.TOHBMovesNo = +d.TOHBodyMoves;//The Number of the moves not preformed by the protagonist, and they punch the enemies' body;
-	Movies.TOHJMovesNo = +d.TOHJointMoves;//The Number of the moves not preformed by the protagonist, and they punch the enemies' joint;
-	Movies.TOPMovesNo = +d.TOPrepareMoves;//The Number of the moves not preformed by the protagonist, and they are preparing the battle;
-	Movies.TOJMovesNo = +d.TOJumpMoves;//The Number of the moves not preformed by the protagonist, and they are showing their jumping skill;
-	Movies.TOHBHMovesNo = +d.TOHBHeadMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their head and bleeding;
-	Movies.TOHBBodyMovesNo = +d.TOHBBodyMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their body and bleeding;
-	Movies.TOHNBHMovesNo = +d.TOHNBHeadMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their head but without bleeding;
-	Movies.TOHNBBMovesNo = +d.TOHNBBodyMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their body but without bleeding;
-	Movies.TOHBJMovesNo = +d.TOHBJointMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their joint and bleeding;
-	Movies.TOHNBJMovesNo = +d.TOHNBJointMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their joint but without bleeding;
-	Movies.TOMovesTime = +d.TotalOthersMovesTime;//The total time in this movie that they perform some Kung Fu moves and those moves have no strong meaning about defense and offensive;
-	Movies.TPOMovesTime = +d.TotalPOtherMovesTime;//The total time in this movie that the Kung Fu is not performed by the protagonist;
-	Movies.Name = d.MovieName;//The Name of the Movie;
+	Movies.Type = d.Type;//The Type of the movie;	
+	Movies.TotalMoves = +d.TotalMoves;//The Kung Fu moves Number in this movie;
+	Movies.TotalKungFuTime = +d.TotalKungFuTime;//The Time Perform Kung Fu in this movie;
+	Movies.TotalProtagonistTime = +d.TotalProtagonistTime;//The Time the protagonist perform Kung Fu in this movie;
+	Movies.ProtagonistName = d.ProtagonistName;//The Name of the Protagonist;
+	Movies.TotalAttackMoves = +d.TotalAttackMoves;//The Number of the Moves show the information of offensive;
+	Movies.TotalDefenseMoves = +d.TotalDefenseMoves;//The Number of the Moves show the information of defensive;
+	Movies.TotalOtherMoves = +d.TotalOtherMoves;//The Number of the Moves show something else, neither offensive nor defensive;
+	Movies.TotalHurtMoves = +d.TotalHurtMoves;//The Number of the Moves show the Protagonist or his friend get hurt;
+	Movies.AttackHandMoves = +d.AttackHandMoves;//The Number of the Moves perform by hand and show some offensive information;
+	Movies.AttackKickMoves = +d.AttackKickMoves;//The Number of the Moves perform by leg and show some offensive information;
+	Movies.ATKHHeadMoves = +d.ATKHHeadMoves;//The Number of those Moves using hand to attack the enemies' head;
+	Movies.ATKHBodyMoves = +d.ATKHBodyMoves;//The Number of Those Moves using hand to attack the enemies' body;
+	Movies.ATKHJointMoves = +d.ATKHJointMoves;//The Number of Those Moves using hand to attack the enemies' joint or grap them;
+	Movies.ATKKHeadMoves = +d.ATKKHeadMoves;//The Number of Those Moves using kick to attack the enemies' head;
+	Movies.ATKKBodyMoves = +d.ATKKBodyMoves;//The Number of Those Moves using kick to attack the enemies' body;
+	Movies.ATKKJointMoves = +d.ATKKJointMoves;//The Number of Those Moves using kick to attack the enemies' joint or let them down;
+	Movies.DEFBlockMoves = +d.DEFBlockMoves;//The Number of Those blocking moves;
+	Movies.DEFEvadeMoves = +d.DEFEvadeMoves;//The Number of Those evading moves;
+	Movies.DEFBHeadMoves = +d.DEFBHeadMoves;//The Number of Those blocking moves help protect the head;
+	Movies.DEFBBodyMoves = +d.DEFBBodyMoves;//The Number of Those blocking moves help protect the body;
+	Movies.DEFEHeadMoves = +d.DEFEHeadMoves;//The Number of Those moves help protect the head;
+	Movies.DEFEBodyMoves = +d.DEFEBodyMoves;//The Number of Those moves help protect the body;
+	Movies.HurtBloodMoves = +d.HurtBloodMoves;//The Number of Those moves lead the protagonist or his friend get hurt and bleeding;
+	Movies.HurtNoBloodMoves = +d.HurtNoBloodMoves;//The Number of Those moves lead the protagonist or his friend get hurt but without bleeding;
+	Movies.HBHeadMoves = +d.HBHeadMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their head and bleeding;
+	Movies.HBBodyMoves = +d.HBBodyMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their body and bleeding;
+	Movies.HBJointMoves = +d.HBJointMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their joint or grap them and bleeding;
+	Movies.HNBHeadMoves = +d.HNBHeadMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their head but without bleeding;
+	Movies.HNBBodyMoves = +d.HNBBodyMoves;//The Number of Those moves lead the protagonist or his friend get hurt on their body but without bleeding;
+	Movies.HNBJointMoves = +d.HNBJointMoves;//The Number of Those moves lead the protagonist orhis friend get hurt on their joint or grap them but without bleeding;
+	Movies.TotalHeadMoves = +d.TotalHeadMoves;//The Number of those moves attack or hurt the head;
+	Movies.TotalBodyMoves = +d.TotalBodyMoves;//The Number of Those moves attack or hurt the body;
+	Movies.TotalJointMoves = +d.TotalJointMoves;//The Number of Those moves attack or hurt the joint;
+	Movies.TotalProtagonistMoves = +d.TotalProtagonistMoves;//The Number of the moves preformed by the protagonist;
+	Movies.TotalNoProtagonistMoves = +d.TotalNoProtagonistMoves;//The Number of the moves not preformed by the protagonist;
+	Movies.TPBHeadMoves = +d.TPBHeadMoves;//The Number of the moves preformed by the protagonist, and he block the enemies' attack, protect his head;
+	Movies.TPBBodyMoves = +d.TPBBodyMoves;//The Number of the moves preformed by the protagonist, and he block the enemies' attack, protect his body;
+	Movies.TPEHeadMoves = +d.TPEHeadMoves;//The Number of the moves preformed by the protagonist, and he evade the enemies' attack, protect his head;
+	Movies.TPEBodyMoves = +d.TPEBodyMoves;//The Number of the moves preformed by the protagonist, and he block the enemies' attack, protect his body;
+	Movies.TPKHeadMoves = +d.TPKHeadMoves;//The Number of the moves preformed by the protagonist, and he kick the enemies' head;
+	Movies.TPKBodyMoves = +d.TPKBodyMoves;//The Number of the moves preformed by the protagonist, and he kick the enemies' body;
+	Movies.TPKJointMoves = +d.TPKJointMoves;//The Number of the moves preformed by the protagonist, and he kick the enemies' joint;
+	Movies.TPHHeadMoves = +d.TPHHeadMoves;//The Number of the moves preformed by the protagonist, and he punch the enemies' head;
+	Movies.TPHBodyMoves = +d.TPHBodyMoves;//The Number of the moves preformed by the protagonist, and he punch the enemies' body;
+	Movies.TPHJointMoves = +d.TPHJointMoves;//The Number of the moves preformed by the protagonist, and he punch the enemies' joint;
+	Movies.TPPrepareMoves = +d.TPPrepareMoves;//The Number of the moves preformed by the protagonist, and he is preparing the battle;
+	Movies.TPJumpMoves = +d.TPJumpMoves;//The Number of the moves preformed by the protagonist, and he show his jumping skill;
+	Movies.TPHBHeadMoves = +d.TPHBHeadMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his head and bleeding;
+	Movies.TPHBBodyMoves = +d.TPHBBodyMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his body and bleeding;
+	Movies.TPHBJointMoves = +d.TPHBJointMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his joint and bleeding;
+	Movies.TPHNBHeadMoves = +d.TPHNBHeadMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his head but without bleeding;
+	Movies.TPHNBBodyMoves = +d.TPHNBBodyMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his body but without bleeding;
+	Movies.TPHNBJointMoves = +d.TPHNBJointMoves;//The Number of the moves preformed by the protagonist, show he get hurt on his joint but without bleeding;
+	Movies.TOBHeadMoves = +d.TOBHeadMoves;//The Number of the moves not preformed by the protagonist, and they block the enemies' attack, protect their head;
+	Movies.TOBBodyMoves = +d.TOBBodyMoves;//The Number of the moves not preformed by the protagonist, and they block the enemies' attack, protect their body;
+	Movies.TOEHeadMoves = +d.TOEHeadMoves;//The Number of the moves not preformed by the protagonist, and they evade the enemies' attack, protect their head;
+	Movies.TOEBodyMoves = +d.TOEBodyMoves;//The Number of the moves not preformed by the protagonist, and they evade the enemies' attack, protect their body;
+	Movies.TOKHeadMoves = +d.TOKHeadMoves;//The Number of the moves not preformed by the protagonist, and they kick the enemies' head;
+	Movies.TOKBodyMoves = +d.TOKBodyMoves;//The Number of the moves not preformed by the protagonist, and they kick the enemies' body;
+	Movies.TOKJointMoves = +d.TOKJointMoves;//The Number of the moves not preformed by the protagonist, and they kick the enemies' joint;
+	Movies.TOHHeadMoves = +d.TOHHeadMoves;//The Number of the moves not preformed by the protagonist, and they punch the enemies' head;
+	Movies.TOHBodyMoves = +d.TOHBodyMoves;//The Number of the moves not preformed by the protagonist, and they punch the enemies' body;
+	Movies.TOHJointMoves = +d.TOHJointMoves;//The Number of the moves not preformed by the protagonist, and they punch the enemies' joint;
+	Movies.TOPrepareMoves = +d.TOPrepareMoves;//The Number of the moves not preformed by the protagonist, and they are preparing the battle;
+	Movies.TOJumpMoves = +d.TOJumpMoves;//The Number of the moves not preformed by the protagonist, and they are showing their jumping skill;
+	Movies.TOHBHeadMoves = +d.TOHBHeadMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their head and bleeding;
+	Movies.TOHBBodyMoves = +d.TOHBBodyMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their body and bleeding;
+	Movies.TOHNBHeadMoves = +d.TOHNBHeadMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their head but without bleeding;
+	Movies.TOHNBBodyMoves = +d.TOHNBBodyMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their body but without bleeding;
+	Movies.TOHBJointMoves = +d.TOHBJointMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their joint and bleeding;
+	Movies.TOHNBJointMoves = +d.TOHNBJointMoves;//The Number of the moves not preformed by the protagonist, show they get hurt on their joint but without bleeding;
+	Movies.TotalOthersMovesTime = +d.TotalOthersMovesTime;//The total time in this movie that they perform some Kung Fu moves and those moves have no strong meaning about defense and offensive;
+	Movies.TotalPOtherMovesTime = +d.TotalPOtherMovesTime;//The total time in this movie that the Kung Fu is not performed by the protagonist;
+	Movies.MovieName = d.MovieName;//The Name of the Movie;
 
-	
-	KeyWord = "Visual";
 	if(KeyWord=="Tragedy")
 		{
 			PosterName = PosterPosition + "The_Big_Boss.jpg"
@@ -171,10 +176,17 @@ function parse(d)
 			PosterName = PosterPosition + "The_Matrix.jpg";
 		}
 	
-	if(Movies.type == KeyWord)
+	if(Movies.Type == KeyWord)
 		{
-			console.log(Movies.type);
+			TitleText(d.Type,d.MovieName)
+			StarringName = PosterPosition + d.ProtagonistName + ".png";
+			console.log(StarringName);
+			TotalKungFunumber = d.TotalMoves;
 			DrawPoster(PosterName);
+			DrawStarringPhoto(StarringName);
+			StarringTips(d.ProtagonistName,d.TotalProtagonistMoves)
+			MoveNumberText(TotalKungFunumber);
+			ForeverText();
 			FullPosterHeight = document.getElementById('MoviePoster').offsetHeight;
 //			DrawLeftTimeBar(Movies.TKFTime,Movies.TOMovesTime,Movies.TPTime,Movies.TMoves,Movies.OMoveNo);
 //			DrawLeftTimeBar(d);
@@ -197,6 +209,24 @@ function DrawPoster(PosterName)
 	})
 	.attr("height",function(){
 		var Height = windowHeight * PosterHeightPercentage;
+		return Height + "px";
+	})
+	.style("opacity",0)
+	.transition()
+	.duration(durationTime)
+	.style("opacity",1);
+}
+
+function DrawStarringPhoto(StarringName)
+{	
+	d3.select('#StarringPhoto')
+	.attr("src",StarringName)
+	.style("margin-top",function(){
+		var Margin_Top = windowHeight * ImageMarginTop;
+		return Margin_Top + "px";
+	})
+	.attr("height",function(){
+		var Height = windowHeight * StarringHeightPercentage;
 		return Height + "px";
 	});
 }
@@ -369,46 +399,6 @@ function DrawLeftTimeBar(Movies)
 		.attr("height",function(){
 			return 0 + "px";
 		});	
-	
-//	var CircleSize = document.getElementById('TimeBar_Part').offsetWidth;
-//	var CirclePercentage = 0.37;
-	
-//	var KungFuAverageTime = d3.select('#TimeClock')
-//		.attr("width",function()
-//		{	
-//			return (CirclePercentage * CircleSize)/2 + "px";
-//		})
-//		.attr("height", function(){
-//			return (CirclePercentage * CircleSize)/2 + "px";
-//		})
-//		.style("margin-left",function(){
-//			return 5 + "%";
-//		})
-//		.style("margin-top",function(){
-//			var Topblank = 0.375 * document.getElementById('Main_Part').offsetHeight;
-//			var MarginDis = Topblank - (CirclePercentage * CircleSize)/2;			
-//			return Topblank + "px";
-//		})
-//	
-//	var PrepareAverageTime = d3.select('#TimePreClock')
-//		.attr("width",function()
-//		{	
-//			var CircleWidth = CirclePercentage * CircleSize * AverageTime1Parepare/AverageTimeFor1Move;
-//			console.log(CircleWidth);
-//			return CircleWidth/2 + "px";
-//		})
-//		.attr("height", function(){
-//			var CircleHeight = CirclePercentage * CircleSize * AverageTime1Parepare/AverageTimeFor1Move;			
-//			return CircleHeight/2 + "px";
-//		})
-//		.style("margin-left",function(){
-//			return 5 + "%";
-//		})
-//		.style("margin-top",function(){
-//			var Topblank = 0.75 * document.getElementById('Main_Part').offsetHeight;
-//			var MarginDis = Topblank - (CirclePercentage * CircleSize * AverageTime1Parepare/AverageTimeFor1Move)/2;
-//			return MarginDis + "px";
-//		})	
 }
 
 function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datavalue,ClassName)
@@ -425,12 +415,14 @@ function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datava
 		Value = Datavalue;
 	
 	var PathPart = d3.select("#Follow_Part")
+		.append('g')
 		.append('path')
 		.attr('class','path')
 		.attr('id',ClassName)
 		.attr("stroke",ColorHue)
 		.attr("fill","none")
 		.attr("stroke-width",StrokeWidth + "px")
+		.attr("disabled","disabled")
 		.style("opacity",0.5)
 		.attr('d',function(){
 				var Heightspace = "None";
@@ -443,17 +435,22 @@ function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datava
 		})
 		.style("z-index",80)
 		.on("mouseover",function(){
-			console.log(Value);
 			d3.selectAll("#"+ClassName)
 			.transition()
 			.duration(durationTime/4)
 			.style("opacity",0.8);
+			
+			ChangeText(Value);
+			ChangePieChart(MovieData,ClassName);
 		})
 		.on("mouseout",function(){
 			d3.selectAll("#"+ClassName)
 			.transition()
 			.duration(durationTime/4)			
 			.style("opacity",0.5);
+			
+			ChangeText(TotalKungFunumber);
+			ChangePieCharOut(MovieData);
 		})	
 		.transition()
 		.duration(durationTime)
@@ -466,181 +463,13 @@ function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datava
 				
 				return Heightspace;	
 		})
+		.attr("disabled",null)
 }
 
 function DrawTipImage()
-{
-	d3.select('#KungFu')
-	.style("margin-top",function(){
-		var MTOP = windowHeight * 0.8;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#OffensiveKungFu')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.69;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#DefenseKungFu')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.76;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);	
-	
-	d3.select('#GetHurtKungFu')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.83;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#OtherKungFu')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.90;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#HandATKKungFu')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.68;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#KickATKKungFu')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.73;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#BlockDEFKungFu')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.78;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#EvadeDEFKungFu')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.83;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#Noblood')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.90;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#blood')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.94;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#Head')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.71;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#Body')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.76;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#JointCapture')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.81;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#Prepare')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.86;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#Jump')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.91;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
-	d3.select('#Protagonist')
-	.style("margin-top",function(){
-		var MTOP = windowHeight*0.81;
-		return MTOP + "px";
-	})
-	.style("opacity",0)
-	.transition()
-	.duration(durationTime)
-	.style("opacity",1);
-	
+{	
 	DrawColorHue();
+	TextInfo();
 }
 
 function DrawColorHue()
@@ -656,7 +485,10 @@ function DrawColorHue()
 		.append('svg')
 		.attr('class','svg')
 		.attr("id","ColorHue_Part")	
-		.style('margin-left',0+"px")
+		.style('margin-left',function()
+		{
+			return document.getElementById('Main_Part').offsetWidth*0.855 + 'px';
+		})
 		.style('margin-top',function(){
 			return 0.75 * windowHeight + "px";
 		})
@@ -666,93 +498,53 @@ function DrawColorHue()
 		})
 		.attr("height",function(){
 			return windowHeight*0.25 + "px";
-		});
-	
-	
-	var TotalHue = d3.select('#ColorHue_Part')
-		.append('rect')
-		.attr('class','rect')
-		.style('y',function(){
-			return windowHeight*0.25*0.4 + "px";
 		})
-		.style('x',function(){
-			return 0 + "%";
-		})
-		.style("fill",TotalColor)
-		.attr("width",60+"px")
-		.attr("height",30+"px")
-		.style("opacity",1)
-//		.transition()
-//		.duration(durationTime)
-//		.styel("opacity",1);
-	
-	var ProtagonistHue = d3.select('#ColorHue_Part')
-		.append('rect')
-		.attr('class','rect')
-		.style('y',function(){
-			return windowHeight*0.25*0.7 + "px";
-		})
-		.style('x',function(){
-			return 0 + "%";
-		})
-		.style("fill",ProtagonistColor)
-		.attr("width",60+"px")
-		.attr("height",30+"px")
-		.style("opacity",1)
-//		.transition()
-//		.duration(durationTime)
-//		.styel("opacity",1);
+		.style("opacity",0)
+		.transition()
+		.duration(durationTime)
+		.style("opacity",1);
 	
 	var OffensiveHue = d3.select('#ColorHue_Part')
 		.append('rect')
 		.attr('class','rect')
 		.style('y',function(){
-			return windowHeight*0.25*0.4 + "px";
+			return (windowHeight*0.25*0.7) - 90 + "px";
 		})
 		.style('x',function(){
 			return 30 + "%";
 		})
 		.style("fill",OffensiveColor)
-		.attr("width",60+"px")
+		.attr("width",20+"px")
 		.attr("height",30+"px")
-		.style("opacity",1)
-//		.transition()
-//		.duration(durationTime)
-//		.styel("opacity",1);
+		.style("opacity",1);
 	
 	var DefensivetHue = d3.select('#ColorHue_Part')
 		.append('rect')
 		.attr('class','rect')
 		.style('y',function(){
-			return windowHeight*0.25*0.7 + "px";
+			return (windowHeight*0.25*0.7) - 60 + "px";
 		})
 		.style('x',function(){
 			return 30 + "%";
 		})
 		.style("fill",DefensiveColor)
-		.attr("width",60+"px")
+		.attr("width",20+"px")
 		.attr("height",30+"px")
-		.style("opacity",1)
-//		.transition()
-//		.duration(durationTime)
-//		.styel("opacity",1);
+		.style("opacity",1);
 	
 	var HurtHue = d3.select('#ColorHue_Part')
 		.append('rect')
 		.attr('class','rect')
 		.style('y',function(){
-			return windowHeight*0.25*0.4 + "px";
+			return (windowHeight*0.25*0.7) - 30 + "px";
 		})
 		.style('x',function(){
-			return 60 + "%";
+			return 30 + "%";
 		})
 		.style("fill",HurtColor)
-		.attr("width",60+"px")
+		.attr("width",20+"px")
 		.attr("height",30+"px")
-		.style("opacity",1)
-//		.transition()
-//		.duration(durationTime)
-//		.styel("opacity",1);
+		.style("opacity",1);
 	
 	var OtherHue = d3.select('#ColorHue_Part')
 		.append('rect')
@@ -761,17 +553,12 @@ function DrawColorHue()
 			return windowHeight*0.25*0.7 + "px";
 		})
 		.style('x',function(){
-			return 60 + "%";
+			return 30 + "%";
 		})
 		.style("fill",OtherColor)
-		.attr("width",60+"px")
+		.attr("width",20+"px")
 		.attr("height",30+"px")
-		.style("opacity",1)
-//		.transition()
-//		.duration(durationTime)
-//		.styel("opacity",1);
-	
-	TextInfo();
+		.style("opacity",1);
 }
 
 function TextInfo()
@@ -783,54 +570,6 @@ function TextInfo()
 	var OtherColor = "rgb"+'('+"64,185,176"+')';
 	var ProtagonistColor = "rgb"+'('+'254,113,95'+')';
 	
-//	var TotalPartText = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 22 + "%";
-//		})
-//		.attr("height",function(){
-//			return 30 + "px"
-//		})
-//		.attr("y",function(){
-//			return windowHeight*0.25*0.4 + 10 + "px";
-//		})
-//		.attr("x",function(){
-//			return  60 + "px";
-//		})
-//		.append("text")
-//		.attr('x',10 + "px")
-//		.attr('y',function(){
-//			return 15 + "px";
-//		})
-//		.text("All actors' Kung Fu Moves")
-//		.style("font-size",12+"px")
-//		.style("fill","white");	
-//	
-//	var ProtagonistPartText = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 22 + "%";
-//		})
-//		.attr("height",function(){
-//			return 30 + "px"
-//		})
-//		.attr("y",function(){
-//			return windowHeight*0.25*0.7 + 10 + "px";
-//		})
-//		.attr("x",function(){
-//			return  60 + "px";
-//		})
-//		.append("text")
-//		.attr('x',10 + "px")
-//		.attr('y',function(){
-//			return 15 + "px";
-//		})
-//		.text("Starring Kung Fu Moves")
-//		.style("font-size",12+"px")
-//		.style("fill","white");	
-	
 	var OffensivePartText = d3.select('#ColorHue_Part')
 		.append("svg")
 		.attr("class","svg")
@@ -841,10 +580,10 @@ function TextInfo()
 			return 30 + "px"
 		})
 		.attr("y",function(){
-			return windowHeight*0.25*0.4 + 10 + "px";
+			return windowHeight*0.25*0.7 -90 + 10 + "px";
 		})
 		.attr("x",function(){
-			return  window.innerWidth*0.3*0.4 + 60 + "px";
+			return  document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
 		})
 		.append("text")
 		.attr('x',10 + "px")
@@ -865,10 +604,10 @@ function TextInfo()
 			return 30 + "px"
 		})
 		.attr("y",function(){
-			return windowHeight*0.25*0.7 + 10 + "px";
+			return windowHeight*0.25*0.7 - 60 + 10 + "px";
 		})
 		.attr("x",function(){
-			return  window.innerWidth*0.3*0.4 + 60 + "px";
+			return  document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
 		})
 		.append("text")
 		.attr('x',10 + "px")
@@ -889,10 +628,10 @@ function TextInfo()
 			return 30 + "px"
 		})
 		.attr("y",function(){
-			return windowHeight*0.25*0.4 + 10 + "px";
+			return windowHeight*0.25*0.7 - 30 + 10 + "px";
 		})
 		.attr("x",function(){
-			return  window.innerWidth*0.6*0.4 + 60 + "px";
+			return document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
 		})
 		.append("text")
 		.attr('x',10 + "px")
@@ -916,7 +655,7 @@ function TextInfo()
 			return windowHeight*0.25*0.7 + 10 + "px";
 		})
 		.attr("x",function(){
-			return  window.innerWidth*0.6*0.4 + 60 + "px";
+			return document.getElementById('ColorHue_Part').offsetWidth*1*0.07 + "px";
 		})
 		.append("text")
 		.attr('x',10 + "px")
@@ -925,940 +664,206 @@ function TextInfo()
 		})
 		.text("Other Kung Fu Moves")
 		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var FollowPart1stText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 10 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.85 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  2 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("1st Bar: All Kung Fu Moves")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var OffensiveText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.74 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  21.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("1st Row: Offensive Moves")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var DeffensiveText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.80 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  21.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("2nd Row: Defensive Moves")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var HurtText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.88 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  21.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("3rd Row: Moves cause hurt")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var OtherText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.94 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  21.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("4th Row: Other Moves")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var HandText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.72 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  42 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("1st Row: Punches moves")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var KickText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.76 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  42 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("2nd Row: Kicking moves")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var BlockText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.81 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  42 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("3rd Row: Blocking moves")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var EvadeText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.86 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  42 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("4th Row: Evading moves")
-		.style("font-size",12+"px")
-		.style("fill","white");
-
-		var HurtwithoutbloodText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.91 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  42 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("5th Row: Injured without bleeding")
-		.style("font-size",12+"px")
-		.style("fill","white");
-	
-	var HurtwithbloodText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.96 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  42 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("6th Row: Injured with bleeding")
-		.style("font-size",12+"px")
-		.style("fill","white");
-	
-	var HeadText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.75 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  62.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("1st Row: Hit on head")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var BodyText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.79 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  62.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("2nd Row: Hit on body")
-		.style("font-size",12+"px")
-		.style("fill","white");
-	
-	var JointText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.85 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  62.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("3nd Row: Hit on joint or capture")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var PrepareText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.89 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  62.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("4th Row: Prepare position moves")
-		.style("font-size",12+"px")
-		.style("fill","white");
-	
-	var PrepareText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.94 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  62.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("5th Row: Jumping moves")
-		.style("font-size",12+"px")
-		.style("fill","white");	
-	
-	var StarringText = d3.select('#Follow_Part')
-		.append("svg")
-		.attr("class","svg")
-		.attr("width",function(){
-			return 20 + "%";
-		})
-		.attr("height",function(){
-			return 30 + "px"
-		})
-		.attr("y",function(){
-			return windowHeight*0.85 + 10 + "px";
-		})
-		.attr("x",function(){
-			return  82.5 + "%";
-		})
-		.append("text")
-		.attr('x',10 + "px")
-		.attr('y',function(){
-			return 15 + "px";
-		})
-		.text("1st Row: Starring moves")
-		.style("font-size",12+"px")
-		.style("fill","white");
-	
-//Left Time Part Key words.////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	var AveragePart1Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 2 + "px";
-//		})
-//		.attr("x",function(){
-//			return  0 + "px";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Seconds")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var AveragePart2Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 17 + "px";
-//		})
-//		.attr("x",function(){
-//			return  0 + "px";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Per")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var AveragePart3Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 32 + "px";
-//		})
-//		.attr("x",function(){
-//			return  0 + "px";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Other")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var AveragePart4Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 47 + "px";
-//		})
-//		.attr("x",function(){
-//			return  0 + "px";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Moves")
-//		.style("font-size",12+"px")
-//		.style("fill","white");	
-	
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
-//	var AveragePart21Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 2 + "px";
-//		})
-//		.attr("x",function(){
-//			return  11.5 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Seconds")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var AveragePart22Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 17 + "px";
-//		})
-//		.attr("x",function(){
-//			return  11.5 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Per")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var AveragePart23Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 32 + "px";
-//		})
-//		.attr("x",function(){
-//			return  11.5 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Moves")
-//		.style("font-size",12+"px")
-//		.style("fill","white");	
-	
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	var Starring1Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 2 + "px";
-//		})
-//		.attr("x",function(){
-//			return  32 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("The Time")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var Starring2Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 60 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 17 + "px";
-//		})
-//		.attr("x",function(){
-//			return  32 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Starring")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var Starring3Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 32 + "px";
-//		})
-//		.attr("x",function(){
-//			return  32 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Performed")
-//		.style("font-size",12+"px")
-//		.style("fill","white");	
-//	
-//	var Starring4Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 47 + "px";
-//		})
-//		.attr("x",function(){
-//			return  32 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Kung Fu")
-//		.style("font-size",12+"px")
-//		.style("fill","white");	
-	
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	var Other1Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 2 + "px";
-//		})
-//		.attr("x",function(){
-//			return  43.5 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("The Time")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var Other2Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 17 + "px";
-//		})
-//		.attr("x",function(){
-//			return  43.5 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Performed")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var Starring3Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 32 + "px";
-//		})
-//		.attr("x",function(){
-//			return  43.5 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Other")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var Starring4Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 47 + "px";
-//		})
-//		.attr("x",function(){
-//			return  43.5 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Moves")
-//		.style("font-size",12+"px")
-//		.style("fill","white");	
-	
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	var Total1Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 2 + "px";
-//		})
-//		.attr("x",function(){
-//			return  55 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("The Time")
-//		.style("font-size",12+"px")
-//		.style("fill","white");
-//	
-//	var Total2Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 17 + "px";
-//		})
-//		.attr("x",function(){
-//			return  55 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Performed")
-//		.style("font-size",12+"px")
-//		.style("fill","white");	
-//	
-//	LeftTextPart();
-//}
-//	
-//	
-//function LeftTextPart()
-//{
-//		var Total3Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 32 + "px";
-//		})
-//		.attr("x",function(){
-//			return  55 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Kung Fu")
-//		.style("font-size",12+"px")
-//		.style("fill","white");	
-//
-//	var Total4Text = d3.select('#ColorHue_Part')
-//		.append("svg")
-//		.attr("class","svg")
-//		.attr("width",function(){
-//			return 50 + "px";
-//		})
-//		.attr("height",function(){
-//			return 50 + "px"
-//		})
-//		.attr("y",function(){
-//			return 47 + "px";
-//		})
-//		.attr("x",function(){
-//			return  55 + "%";
-//		})
-//		.append("text")
-//		.attr('x',1 + "px")
-//		.attr('y',function(){
-//			return 11 + "px";
-//		})
-//		.style("position","absolute")
-//		.text("Moves")
-//		.style("font-size",12+"px")
-//		.style("fill","white");		
+		.style("fill","white");		
 }
-	
-function DrawPieChart(TimeData)
+
+function DrawPieChart(MovieData)
 {
 	var OffensiveColor = "rgb"+'('+"255,58,129"+')';
 	var DefensiveColor = "rgb"+'('+"104,187,223"+')';
 	var OtherColor = "rgb"+'('+"64,185,176"+')';	
 	var HurtColor = "rgb"+'('+"281,216,167"+')';
 	
-	var TotalKungFuMoves = null;
-	TotalKungFuMoves = [null]
-	for(var i=0;i<TimeData.length;i++)
+	var CircleSvg = d3.select('#Main_Part')
+		.append('svg')
+		.attr('id','CircleSvg')
+		.attr('class','svg')
+		.style('margin-left',function()
 		{
-			if(i==0)
+			return 0 + '%';
+		})
+		.style('margin-top',function()
+		{
+			return windowHeight*ImageMarginTop + 'px';
+		})
+		.attr('width',function()
+		{
+			return window.innerWidth*0.23 + 'px';
+		})
+		.attr('height',function()
+		{
+			return windowHeight*(0.8 - ImageMarginTop) + 'px';
+		})
+	
+	var OutR = windowHeight/11;
+	var InR = OutR - 20;
+	var Pi = Math.PI;
+	
+	var Arc = d3.svg.arc()
+		.innerRadius(InR)
+		.outerRadius(OutR)
+		.startAngle(0) //converting from degs to radians
+		.endAngle(360 * (Pi/180)) //just radians
+	
+	var TragedyPieData = CircleSvg
+		.selectAll('path')
+		.data(MovieData)
+		.enter();
+	
+	var TragedyPie	= TragedyPieData
+		.append('path')
+		.attr('id',function(d)
+		{
+			return d.Type + "Pie";
+		})
+		.attr('d',Arc)
+    	.attr("fill", function(d)
+		{
+//			if(d.Type == "Tragedy")
+//				{
+//					return OffensiveColor;
+//				}
+//			else if(d.Type == "Comedy")
+//				{
+//					return DefensiveColor;
+//				}
+//			else if(d.Type == "Visual")
+//				{
+//					return OtherColor;
+//				}
+			return "white";
+		})
+		.style("opacity",0)
+		.attr("transform", function(d,i)
+		{
+			console.log(i);
+			var Xposition = window.innerWidth*0.06;
+			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + 1.5*(i)*OutR;
+			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
+			console.log(CircleString);
+			return CircleString;
+		})
+		.transition()
+		.duration(durationTime)
+		.style("opacity",function(d)
+		{
+			if(d.Type == KeyWord)
 				{
-					TotalKungFuMoves[i] = TimeData[i].TMoves;
+					return 1;
 				}
 			else
 				{
-					TotalKungFuMoves.push(TimeData[i].TMoves);
+					return 0.2;
 				}
-		}
+		})
 	
+	var InnerPieData = CircleSvg
+		.selectAll('circle')
+		.data(MovieData)
+		.enter();
 	
-	console.log(TotalKungFuMoves);
-	
-	var TotalKungFuTime = null;
-	TotalKungFuTime = [null];
-	for(var i=0;i<TimeData.length;i++)
+	var InnerPie = InnerPieData
+		.append('circle')
+		.attr('r',InR)
+    	.attr("fill", function(d)
 		{
-			if(i==0)
-				{
-					TotalKungFuMoves[i] = TimeData[i].TKFTime;
-				}
-			else
-				{
-					TotalKungFuMoves.push(TimeData[i].TKFTime);
-				}
-		}	
+//			if(d.Type == "Tragedy")
+//				{
+//					return OffensiveColor;
+//				}
+//			else if(d.Type == "Comedy")
+//				{
+//					return DefensiveColor;
+//				}
+//			else if(d.Type == "Visual")
+//				{
+//					return OtherColor;
+//				}
+			return "rgb"+'('+"129,183,195"+')';
+		})
+		.attr("transform", function(d,i)
+		{
+			var Xposition = window.innerWidth*0.06;
+			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + 1.5*(i)*OutR;
+			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
+			return CircleString;
+		})
+		.style("opacity",0)
+		.on('mouseover',function()
+		{
+			d3.select(this)
+			.attr("fill","rgb"+'('+"129,183,255"+')')
+		})
+		.on('mouseout',function()
+		{
+			d3.select(this)
+			.attr("fill","rgb"+'('+"129,183,195"+')')
+		})	
+		.on('click',function(d)
+		{
+			KeyWord = d.Type;
+			DeleteColorHuePart();
+			DeleteFollowPart();
+			DeleteMoveNumberText();
+			DeleteStarringText();
+			DeleteTitleText();
+			DeleteForeverText();
+			DeleteCirclePart();
+			Dataload();
+		})
+		.transition()
+		.duration(durationTime)
+		.style("opacity",function(d)
+		{
+			return 1;
+		})
 	
-	return null;
+	var InnerTextData = CircleSvg
+		.selectAll('text')
+		.data(MovieData)
+		.enter();
+	
+	var InnerText = InnerTextData
+		.append('text')
+		.style("font-size", 15+"px")
+		.style("fill","white")
+		.attr("text-anchor","middle")
+		.attr("transform", function(d,i)
+		{
+			var Xposition = window.innerWidth*0.06;
+			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + (i)*1.5*OutR;
+			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
+			return CircleString;
+		})
+		.text(function(d){
+			return d.MovieName;
+		})
+		.style("opacity",0)
+		.transition()
+		.duration(durationTime)
+		.style("opacity",1)
+	
+	var InnerTextInfo = InnerTextData
+		.append('text')
+		.style("font-size", 15+"px")
+		.style("fill","white")
+		.attr("id",function(d)
+		{
+			return d.Type+"No";
+		})
+		.attr("text-anchor","middle")
+		.attr("transform", function(d,i)
+		{
+			var Xposition = window.innerWidth*0.06;
+			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + (i)*1.5*OutR + 20;
+			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
+			return CircleString;
+		})
+		.text(function(d){
+			return 1*100+".0%";
+		})
+		.style("opacity",0)
+		.transition()
+		.duration(durationTime)
+		.style("opacity",1)
 }
