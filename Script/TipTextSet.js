@@ -233,7 +233,7 @@ function TitleText(Type,MovieName)
 		.attr("id","MainTitleText")
 		.attr('x',10 + "px")
 		.attr('y',function(){
-			return 50 + "px";
+			return FontMiddleSize*3 + "px";
 		})
 		.text(Type + " Kung Fu Movies, Example: " + MovieName)
 		.style("font-size",FontLargeSize+"px")
@@ -275,7 +275,7 @@ function TitleText(Type,MovieName)
 		.append("text")
 		.attr('x',10 + "px")
 		.attr('y',function(){
-			return 85 + "px";
+			return FontMiddleSize*5 + "px";
 		})
 		.text(TypeDescrbition1)
 		.style("font-size",FontMiddleSize+"px")
@@ -289,7 +289,7 @@ function TitleText(Type,MovieName)
 		.append("text")
 		.attr('x',10 + "px")
 		.attr('y',function(){
-			return 105 + "px";
+			return FontMiddleSize*6.5 + "px";
 		})
 		.text(TypeDescrbition2)
 		.style("font-size",FontMiddleSize+"px")
