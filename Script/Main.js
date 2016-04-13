@@ -4,6 +4,8 @@ var windowHeight = window.innerHeight;
 //Set the percentage heigh of the Mid part.
 var marginTopForMidPart = 0.0;
 
+var oldOpacity = 0;
+
 var ImageMarginTop = 0.125;
 var PosterHeightPercentage = 0.625;
 var StarringHeightPercentage = 0.14;
@@ -44,6 +46,7 @@ var UnitWidth = 0.04;
 var PosterPosition = "data/Images/";
 var StarringName =null;
 var PosterName = PosterPosition + "The_Big_Boss.jpg";
+var MoviePosition = "data/Movie/";
 
 var durationTime = 1800;
 var TotalKungFunumber = null;
@@ -196,15 +199,17 @@ function parse(d)
 	
 	if(Movies.Type == KeyWord)
 		{
-			TitleText(d.Type,d.MovieName)
+			TitleText(d.Type,d.MovieName,d.ProtagonistName)
 			StarringName = PosterPosition + d.ProtagonistName + ".png";
 			console.log(StarringName);
 			TotalKungFunumber = d.TotalMoves;
 			DrawPoster(PosterName);
+			SetClips();
 			DrawStarringPhoto(StarringName);
 			StarringTips(d.ProtagonistName,d.TotalProtagonistMoves)
 			MoveNumberText(TotalKungFunumber);
 			ForeverText();
+			ExplainText();
 			FullPosterHeight = document.getElementById('MoviePoster').offsetHeight;
 //			DrawLeftTimeBar(Movies.TKFTime,Movies.TOMovesTime,Movies.TPTime,Movies.TMoves,Movies.OMoveNo);
 //			DrawLeftTimeBar(d);
@@ -232,7 +237,139 @@ function DrawPoster(PosterName)
 	.style("opacity",0)
 	.transition()
 	.duration(durationTime)
-	.style("opacity",1);
+	.style("opacity",0.0);
+}
+
+function SetClips()
+{
+//	.style("opacity",1)	
+	
+	var Video = document.getElementById('MovieClips');
+	Video.loop = true;
+//	Video.play();
+	
+	d3.select('#MovieBackground')
+	.style("margin-top",function(){
+		return FontMiddleSize*15 + "px";
+	})
+	.style("margin-left",function(){
+		return FontLittleSize + "px";
+	})
+	.attr("height",function(){
+		var Height = document.getElementById('MovieBackground').offsetWidth/16*9;
+		return Height + "px";
+	})
+//	.style("opacity",0)
+//	.transition()
+//	.duration(durationTime)
+//	.style("opacity",1)
+	
+	if(KeyWord!="Tragedy")
+	{
+
+	}
+	d3.select('#MovieClips')
+	.style("margin-top",function(){
+		var MiddleStart = document.getElementById('MovieBackground').offsetHeight - document.getElementById('MovieClips').offsetHeight; 
+		return FontMiddleSize*15 + MiddleStart/2 + "px";
+	})
+	.style("margin-left",function(){
+		return FontLittleSize + "px";
+	})
+	
+	d3.select('#Play')
+	.style("margin-top",function(){
+	
+		return FontMiddleSize*16 + document.getElementById('MovieBackground').offsetHeight + "px";
+	})
+	.style("margin-left",function(){
+		return FontLittleSize + "px";
+	})
+	.on("mouseover",function()
+	{
+		d3.select(this)
+		.style('background-color',"rgb"+'('+"112,128,144"+')')
+		
+	})
+	.on("mouseout",function()
+	{
+		d3.select(this)
+		.style('background-color',"rgb"+'('+'84,84,94'+')')
+		
+	})
+	.on("click",function()
+	{
+		var Video = document.getElementById('MovieClips');
+		Video.play();
+	})
+	.style("opacity",0)
+	.transition()
+	.duration(durationTime)
+	.style("opacity",1);	
+	
+	d3.select('#Pause')
+	.style("margin-top",function(){
+	
+		return FontMiddleSize*16 + document.getElementById('MovieBackground').offsetHeight + "px";
+	})
+	.style("margin-left",function(){
+		return FontLittleSize*7 + "px"; /*+ document.getElementById('MovieBackground').offsetWidth - FontLittleSize*18 + "px";*/
+	})
+	.on("mouseover",function()
+	{
+		d3.select(this)
+		.style('background-color',"rgb"+'('+"112,128,144"+')')
+		
+	})
+	.on("mouseout",function()
+	{
+		d3.select(this)
+		.style('background-color',"rgb"+'('+'84,84,94'+')')
+		
+	})
+	.on("click",function()
+	{
+		var Video = document.getElementById('MovieClips');
+		Video.pause();
+	})
+	.style("opacity",0)
+	.transition()
+	.duration(durationTime)
+	.style("opacity",1);	
+//	.attr("height",function(){
+//		var Height = document.getElementById('MovieClips').offsetWidth * 1.5;
+//		return Height + "px";
+//	})
+//	.style("opacity",0)
+//	.transition()
+//	.duration(durationTime)
+}
+
+function ChangeClips(ClipName)
+{
+	var ChangeClipsName = MoviePosition+KeyWord+"/"+ClipName+".mp4";
+	console.log(ChangeClipsName);
+	
+	if(KeyWord!="Tragedy")
+	{
+		d3.select('#MovieClips')
+		.attr("src",ChangeClipsName)
+		.style("margin-top",function(){
+			return FontMiddleSize*15 +  "px";
+		});		
+	}
+	else
+	{
+		d3.select('#MovieClips')
+		.attr("src",ChangeClipsName)
+		.style("margin-top",function(){
+			var MiddleStart = document.getElementById('MovieBackground').offsetHeight - document.getElementById('MovieClips').offsetHeight; 
+			return FontMiddleSize*15 + MiddleStart + "px";
+		});
+	}
+	
+	var Video = document.getElementById('MovieClips');
+	Video.play();
 }
 
 function DrawStarringPhoto(StarringName)
@@ -240,13 +377,14 @@ function DrawStarringPhoto(StarringName)
 	d3.select('#StarringPhoto')
 	.attr("src",StarringName)
 	.style("margin-top",function(){
-		var Margin_Top = windowHeight * ImageMarginTop;
+		var Margin_Top = windowHeight * ImageMarginTop - FontLittleSize*5.5;
 		return Margin_Top + "px";
 	})
 	.attr("height",function(){
 		var Height = windowHeight * StarringHeightPercentage;
 		return Height + "px";
-	});
+	})
+	.style("opacity",0);
 }
 
 function DrawLeftTimeBar(Movies)
@@ -453,6 +591,10 @@ function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datava
 		})
 		.style("z-index",80)
 		.on("mouseover",function(){
+			
+			console.log(this.style.opacity);
+			oldOpacity = this.style.opacity;
+			
 			d3.selectAll("#"+ClassName)
 			.transition()
 			.duration(durationTime/4)
@@ -462,6 +604,7 @@ function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datava
 			ChangePieChart(MovieData,ClassName);
 		})
 		.on("mouseout",function(){
+			
 			d3.selectAll("#"+ClassName)
 			.transition()
 			.duration(durationTime/4)			
@@ -469,7 +612,12 @@ function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datava
 			
 			ChangeText(TotalKungFunumber);
 			ChangePieCharOut(MovieData);
-		})	
+		})
+		.on("click",function()
+		{
+			console.log("success");
+			ChangeClips(ClassName);
+		})
 		.transition()
 		.duration(durationTime)
 		.attr('d',function(){
@@ -535,7 +683,7 @@ function DrawColorHue()
 		.style("fill",OffensiveColor)
 		.attr("width",FontLittleSize*2+"px")
 		.attr("height",FontMiddleSize*2+"px")
-		.style("opacity",1);
+		.style("opacity",0.5);
 	
 	var DefensivetHue = d3.select('#ColorHue_Part')
 		.append('rect')
@@ -549,7 +697,7 @@ function DrawColorHue()
 		.style("fill",DefensiveColor)
 		.attr("width",FontLittleSize*2+"px")
 		.attr("height",FontMiddleSize*2+"px")
-		.style("opacity",1);
+		.style("opacity",0.5);
 	
 	var HurtHue = d3.select('#ColorHue_Part')
 		.append('rect')
@@ -563,7 +711,7 @@ function DrawColorHue()
 		.style("fill",HurtColor)
 		.attr("width",FontLittleSize*2+"px")
 		.attr("height",FontMiddleSize*2+"px")
-		.style("opacity",1);
+		.style("opacity",0.5);
 	
 	var OtherHue = d3.select('#ColorHue_Part')
 		.append('rect')
@@ -577,7 +725,7 @@ function DrawColorHue()
 		.style("fill",OtherColor)
 		.attr("width",FontLittleSize*2+"px")
 		.attr("height",FontMiddleSize*2+"px")
-		.style("opacity",1);
+		.style("opacity",0.5);
 }
 
 function TextInfo()
@@ -593,7 +741,7 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return FontLittleSize*12 + "px";
+			return FontLittleSize*16 + "px";
 		})
 		.attr("height",function(){
 			return FontMiddleSize*3 + "px"
@@ -617,7 +765,7 @@ function TextInfo()
 		.append("svg")
 		.attr("class","svg")
 		.attr("width",function(){
-			return FontLittleSize*12 + "px";
+			return FontLittleSize*16 + "px";
 		})
 		.attr("height",function(){
 			return FontMiddleSize*3 + "px"
@@ -657,7 +805,7 @@ function TextInfo()
 		.attr('y',function(){
 			return FontMiddleSize + "px";
 		})
-		.text("Moves cause hurt")
+		.text("Moves causing pain")
 		.style("font-size", FontLittleSize+"px")
 		.style("fill","white");	
 	
@@ -699,7 +847,7 @@ function DrawPieChart(MovieData)
 		.attr('class','svg')
 		.style('margin-left',function()
 		{
-			return 0 + '%';
+			return FontLittleSize*50 + 'px';
 		})
 		.style('margin-top',function()
 		{
@@ -707,15 +855,15 @@ function DrawPieChart(MovieData)
 		})
 		.attr('width',function()
 		{
-			return window.innerWidth*0.23 + 'px';
+			return window.innerWidth*0.1 + 'px';
 		})
 		.attr('height',function()
 		{
 			return windowHeight*(0.8 - ImageMarginTop) + 'px';
 		})
 	
-	var OutR = windowHeight/11;
-	var InR = OutR - 20;
+	var OutR = 6*FontLittleSize;
+	var InR = OutR - 2*FontLittleSize;
 	var Pi = Math.PI;
 	
 	var Arc = d3.svg.arc()
@@ -768,7 +916,7 @@ function DrawPieChart(MovieData)
 		{
 			if(d.Type == KeyWord)
 				{
-					return 1;
+					return 0.6;
 				}
 			else
 				{
@@ -798,7 +946,8 @@ function DrawPieChart(MovieData)
 //				{
 //					return OtherColor;
 //				}
-			return "rgb"+'('+"129,183,195"+')';
+//			return "rgb"+'('+"129,183,195"+')';
+			return "rgb"+'('+"84,84,94"+')'
 		})
 		.attr("transform", function(d,i)
 		{
@@ -811,12 +960,14 @@ function DrawPieChart(MovieData)
 		.on('mouseover',function()
 		{
 			d3.select(this)
-			.attr("fill","rgb"+'('+"129,183,255"+')')
+			.attr("fill","rgb"+'('+"112,128,144"+')')
+//			.attr("fill","rgb"+'('+"129,183,255"+')')
 		})
 		.on('mouseout',function()
 		{
 			d3.select(this)
-			.attr("fill","rgb"+'('+"129,183,195"+')')
+			.attr("fill","rgb"+'('+"84,84,94"+')')
+//			.attr("fill","rgb"+'('+"129,183,195"+')')
 		})	
 		.on('click',function(d)
 		{
@@ -829,6 +980,14 @@ function DrawPieChart(MovieData)
 			DeleteForeverText();
 			DeleteCirclePart();
 			Dataload();
+			
+			
+			d3.select('#MovieClips')
+			.attr('src',"");
+			
+			var Video = document.getElementById('MovieClips');
+			Video.pause();
+			
 		})
 		.transition()
 		.duration(durationTime)
@@ -850,12 +1009,12 @@ function DrawPieChart(MovieData)
 		.attr("transform", function(d,i)
 		{
 			var Xposition = window.innerWidth*0.06;
-			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + (i)*1.5*OutR;
+			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.128*(i+1) + (i)*1.5*OutR;
 			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
 			return CircleString;
 		})
 		.text(function(d){
-			return d.MovieName;
+			return d.Type;
 		})
 		.style("opacity",0)
 		.transition()
@@ -874,12 +1033,36 @@ function DrawPieChart(MovieData)
 		.attr("transform", function(d,i)
 		{
 			var Xposition = window.innerWidth*0.06;
-			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + (i)*1.5*OutR + FontMiddleSize*1.2;
+			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.128*(i+1) + (i)*1.5*OutR + FontMiddleSize*1.2;
 			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
 			return CircleString;
 		})
 		.text(function(d){
 			return 1*100+".0%";
+		})
+		.style("opacity",0)
+		.transition()
+		.duration(durationTime)
+		.style("opacity",1)
+	
+	var InnerTextExplainInfo = InnerTextData
+		.append('text')
+		.style("font-size", FontMiddleSize+"px")
+		.style("fill","white")
+		.attr("id",function(d)
+		{
+			return d.Type+"No";
+		})
+		.attr("text-anchor","middle")
+		.attr("transform", function(d,i)
+		{
+			var Xposition = window.innerWidth*0.06;
+			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.128*(i+1) + (i)*1.5*OutR + FontMiddleSize*2.4;
+			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
+			return CircleString;
+		})
+		.text(function(d){
+			return "of all moves";
 		})
 		.style("opacity",0)
 		.transition()
