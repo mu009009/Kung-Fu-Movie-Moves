@@ -5,6 +5,10 @@ function DeleteColorHuePart()
 //	.duration(durationTime)
 //	.style('opacity',0)
 	.remove();
+	
+	d3.select('#PainHue')
+	.remove();
+	
 	return null;
 }
 

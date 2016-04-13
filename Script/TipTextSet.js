@@ -79,7 +79,7 @@ function MoveNumberText(Number)
 		})
 		.style("margin-top",function(){
 
-			return 1.1*(window.innerHeight*ImageMarginTop + 1*document.getElementById('MoviePoster').offsetHeight) + 'px';
+			return FontLittleSize*74 + 'px';
 			
 		})
 		.style("margin-left",function(){
@@ -132,7 +132,7 @@ function ForeverText()
 		})
 		.style("margin-top",function(){
 
-			return 1.1*(window.innerHeight*ImageMarginTop + 1*document.getElementById('MoviePoster').offsetHeight) + 'px';
+			return FontLittleSize*74 + 'px';
 			
 		})
 		.style("margin-left",function(){
@@ -171,21 +171,21 @@ function StarringTips(StarringName,StarringKungFuNo)
 	})
 	.style("margin-top",function(){
 
-		return 1.02*(window.innerHeight*ImageMarginTop + 1*document.getElementById('StarringPhoto').offsetHeight) + 'px';
+		return FontMiddleSize*3.5 + 'px';
 			
 	})
 	.style("margin-left",function(){
-		return  window.innerWidth*0.94 + 'px';
+		return  window.innerWidth*0.923 + 'px';
 	})
 	
 	var StarringText = StarringTipsSvg
 	.append('text')
 	.attr('x',FontLittleSize)
-	.attr('y',FontMiddleSize)
+	.attr('y',0)
 	.style("font-size",FontLittleSize+"px")
 	.style("fill","white");
 	
-	var TextString = "Starring:," + StarringName + ",performed," + StarringKungFuNo + " moves,in this movie";
+	var TextString = StarringName + ",who performed," + StarringKungFuNo + " moves,in this movie";
 	var NewString = TextString.split(",");
 	
 	StarringText.selectAll('tspan')
@@ -209,7 +209,7 @@ function StarringTips(StarringName,StarringKungFuNo)
 	return null;
 }
 
-function TitleText(Type,MovieName)
+function TitleText(Type,MovieName,ProtagonistName)
 {
 		var Title = d3.select('#Main_Part')
 		.append("svg")
@@ -217,10 +217,10 @@ function TitleText(Type,MovieName)
 		.attr("id","TitleTextSvg")
 		.style("position","absolute")	
 		.attr("width",function(){
-			return 50 + "%";
+			return FontLittleSize*4 + "%";
 		})
 		.attr("height",function(){
-			return 120 + "px"
+			return FontLittleSize*30 + "px"
 		})
 		.style("margin-top",function(){
 
@@ -234,11 +234,11 @@ function TitleText(Type,MovieName)
 		var TextPart = Title
 		.append("text")
 		.attr("id","MainTitleText")
-		.attr('x',10 + "px")
+		.attr('x',FontLittleSize + "px")
 		.attr('y',function(){
 			return FontMiddleSize*3 + "px";
 		})
-		.text(Type + " Kung Fu Movies, Example: " + MovieName)
+		.text("Kung Fu Moves in Three Kinds of Kung Fu Movies")
 		.style("font-size",FontLargeSize+"px")
 		.style("fill","white")
 		.style("opacity",0)
@@ -246,32 +246,77 @@ function TitleText(Type,MovieName)
 		.duration(durationTime)
 		.style("opacity",1);
 	
+		var MovieTitlePart = Title
+		.append("text")
+		.attr("id","MovieTitleText")
+		.attr('x',FontLittleSize + "px")
+		.attr('y',function(){
+			return FontMiddleSize*10 + "px";
+		})
+		.text(MovieName)
+		.style("font-size",FontLargeSize+"px")
+		.style("fill","white")
+		.style("opacity",0)
+		.transition()
+		.duration(durationTime)
+		.style("opacity",1);
+	
+		var MovieabstractPart = Title
+		.append("text")
+		.attr("id","MovieStarringText")
+		.attr('x',FontLittleSize + "px")
+		.attr('y',function(){
+			return FontMiddleSize*12 + "px";
+		})
+		.text("A example of the " + Type + "Kung Fu movies.")
+		.style("font-size",FontMiddleSize+"px")
+		.style("fill","white")
+		.style("opacity",0)
+		.transition()
+		.duration(durationTime)
+		.style("opacity",1);	
+	
+		var MovieStarringPart = Title
+		.append("text")
+		.attr("id","MovieStarringText")
+		.attr('x',FontLittleSize + "px")
+		.attr('y',function(){
+			return FontMiddleSize*13.5 + "px";
+		})
+		.text("Click the path on the right to see movie clips")
+		.style("font-size",FontMiddleSize+"px")
+		.style("fill","white")
+		.style("opacity",0)
+		.transition()
+		.duration(durationTime)
+		.style("opacity",1);		
+	
 		var TypeDescrbition1 = null;
 		if(Type=="Comedy")
 			{
-				TypeDescrbition1 = "This kind of Kung Fu movies mainly to show the sacrifice of the protagonist"
+				TypeDescrbition1 = Type + " Kung Fu movies mainly to show the sacrifice of the protagonist,"
 			}
 		else if(Type=="Tragedy")
 			{
-				TypeDescrbition1 = "This kind of Kung Fu movies mainly to show the power of the Kung Fu"
+				TypeDescrbition1 = Type + " Kung Fu movies mainly to show the power of the Kung Fu,"
 			}
 		else if(Type=="Visual")
 			{
-				TypeDescrbition1 = "Kung Fu is not necessary for this kind of movies, and they use Kung Fu to get more attention"
+				TypeDescrbition1 = Type + "Kung Fu movies mainly to show the elegant and the beauty of the Kung Fu,"
 			}
 	
 		var TypeDescrbition2 = null;
 		if(Type=="Comedy")
 			{
-				TypeDescrbition2 = "It will contain more Defensive Moves, and the protagonist is easier to get hurt in this kind of Movies"
+				TypeDescrbition2 = "to create a good people who will try his best to help his friend, even himself will be painful."
 			}
 		else if(Type=="Tragedy")
 			{
-				TypeDescrbition2 = "It will contain more Offensive Moves to show the strength of the Kung Fu"
+				TypeDescrbition2 = "to create a Kung Fu hero in this kind of movie."
 			}
 		else if(Type=="Visual")
 			{
-				TypeDescrbition2 = "It will contain more preparing or jumping moves, to leave a strong impression to their viewers"
+				TypeDescrbition2 = "to leave a strong impression of their Kung Fu to the movie viewers."
 			}	
 	
 		var TextPart1 = Title
@@ -341,5 +386,70 @@ function ChangeInerTextOut(Type)
 		return 100+".0%";
 	})
 	return null;
+}
+
+function ExplainText()
+{
+	var Title = d3.select('#Main_Part')
+		.append("svg")
+		.attr("class","svg")
+		.attr("id","ExplainTextSvg")
+		.style("position","absolute")	
+		.attr("width",function(){
+			return FontLittleSize*6 + "%";
+		})
+		.attr("height",function(){
+			return FontLittleSize*4.2 + "px"
+		})
+		.style("margin-top",function(){
+
+			return 0 + 'px';
+			
+		})
+		.style("margin-left",function(){
+			return FontLittleSize*77.3 + 'px';
+		});
+	
+	var Explain1 = Title
+	.append("text")
+	.attr('x',0 + "px")
+	.attr('y',function(){
+		return FontMiddleSize*3 + "px";
+	})
+	.text("How they fight")
+	.style("font-size",FontLittleSize+"px")
+	.style("fill","white")
+	.style("opacity",0)
+	.transition()
+	.duration(durationTime)
+	.style("opacity",1);
+	
+	var Explain2 = Title
+	.append("text")
+	.attr('x',FontLittleSize*51 + "px")
+	.attr('y',function(){
+		return FontMiddleSize*3 + "px";
+	})
+	.text("Where they hit")
+	.style("font-size",FontLittleSize+"px")
+	.style("fill","white")
+	.style("opacity",0)
+	.transition()
+	.duration(durationTime)
+	.style("opacity",1);
+	
+//	var Explain3 = Title
+//	.append("text")
+//	.attr('x',FontLittleSize*77.5 + "px")
+//	.attr('y',function(){
+//		return FontMiddleSize*3 + "px";
+//	})
+//	.text("Starring performed")
+//	.style("font-size",FontLittleSize+"px")
+//	.style("fill","white")
+//	.style("opacity",0)
+//	.transition()
+//	.duration(durationTime)
+//	.style("opacity",1);	
 }
 

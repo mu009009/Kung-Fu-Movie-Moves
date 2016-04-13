@@ -9,7 +9,7 @@ function DrawFollowPart(Movies)
 	var OpacityHue = 0.80;
 	var Ichangenumber = 2;
 	var Bardis = 10;
-	var SecondTopBlank = 2*TopBlank;
+	var SecondTopBlank = 1*TopBlank;
 	var TwodSecondTopBlank = TopBlank/2;
 	var IconName = null;
 	var IconPositionX= null;
@@ -34,33 +34,33 @@ function DrawFollowPart(Movies)
 		.style("position", "absolute")
         .append("g");
 	
-	var FirstDis = Followsvg
-	    .append("rect")
-        .attr("class", "rect")
-//        .style('fill',"rgb"+'('+'0,16,78'+')')
-		.style('fill','black')
-        .attr("x",function()
-        {
-            return 0 + "px";
-        })
-        .attr("y",function(){
-			var Height = windowHeight * ImageMarginTop
-			return Height;
-		})
-        .attr("width",function()
-		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
-            return Xlocation + "px";			
-		})
-		.style("z-index",90)
-		.attr("height",0+"px")
-		.style('z-index',90)	
-		.transition()
-		.duration(durationTime)	
-        .attr("height",function() {
-			var barHeight = FullPosterHeight;
-			return barHeight + "px";
-        })
+//	var FirstDis = Followsvg
+//	    .append("rect")
+//        .attr("class", "rect")
+////        .style('fill',"rgb"+'('+'0,16,78'+')')
+//		.style('fill','black')
+//        .attr("x",function()
+//        {
+//            return 0 + "px";
+//        })
+//        .attr("y",function(){
+//			var Height = windowHeight * ImageMarginTop
+//			return Height;
+//		})
+//        .attr("width",function()
+//		{
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//            return Xlocation + "px";			
+//		})
+//		.style("z-index",90)
+//		.attr("height",0+"px")
+//		.style('z-index',90)	
+//		.transition()
+//		.duration(durationTime)	
+//        .attr("height",function() {
+//			var barHeight = FullPosterHeight;
+//			return barHeight + "px";
+//        })
 //First Offensive Part-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	var AtackMoveHeight = (Movies.TotalAttackMoves/Movies.TotalMoves)*FullPosterHeight;
 	var AtackMovesNo = Movies.TotalAttackMoves;
@@ -112,36 +112,36 @@ function DrawFollowPart(Movies)
 			C22Y = (windowHeight * TopBlank + AtackMoveHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
-			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,AtackMovesNo,"TotalAttackMoves");
+//			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,AtackMovesNo,"TotalAttackMoves");
 			i=i+Ichangenumber;
 		}
 	
-	var FirstNewBar = Followsvg
-	    .append("rect")
-        .attr("class", "rect")
-		.style('fill','black')
-        .attr("x",function()
-        {
-			var Width = (BlankWidth + Barwidth - 1 * BarBlank) * document.getElementById('Follow_Part').offsetWidth;
-            return Width + "px";
-        })
-        .attr("y",function(){
-			AttackBarY = windowHeight * TopBlank;
-			return AttackBarY + "px";
-		})
-        .attr("width",function()
-		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
-            return Xlocation + "px";			
-		})
-		.attr("height",0+"px")
-		.style('z-index',90)
-		.transition()
-		.duration(durationTime)
-        .attr("height",function() {
-			PreviousBarHeigh = AtackMoveHeight;
-			return AtackMoveHeight + "px";
-        })
+//	var FirstNewBar = Followsvg
+//	    .append("rect")
+//        .attr("class", "rect")
+//		.style('fill','black')
+//        .attr("x",function()
+//        {
+//			var Width = (BlankWidth + Barwidth - 1 * BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+//            return Width + "px";
+//        })
+//        .attr("y",function(){
+//			AttackBarY = windowHeight * TopBlank;
+//			return AttackBarY + "px";
+//		})
+//        .attr("width",function()
+//		{
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//            return Xlocation + "px";			
+//		})
+//		.attr("height",0+"px")
+//		.style('z-index',90)
+//		.transition()
+//		.duration(durationTime)
+//        .attr("height",function() {
+//			PreviousBarHeigh = AtackMoveHeight;
+//			return AtackMoveHeight + "px";
+//        })
 	
 //First Offensive Part End--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -187,36 +187,36 @@ function DrawFollowPart(Movies)
 			C22Y = ((2*windowHeight * TopBlank + PreviousBarHeigh)+DefenseMoveHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
-			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,Movies.TotalDefenseMoves,"TotalDefenseMoves");
+//			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,Movies.TotalDefenseMoves,"TotalDefenseMoves");
 			
 			i=i+Ichangenumber;
 		}
 	
-	var SecondNewBar = Followsvg
-	    .append("rect")
-        .attr("class", "rect")
-		.style('fill','black')
-        .attr("x",function()
-        {
-			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth;
-            return Width + "px";
-        })
-        .attr("y",function(){
-			var Height = 2 * windowHeight * TopBlank + PreviousBarHeigh;
-			return Height + "px";
-		})
-        .attr("width",function()
-		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
-            return Xlocation + "px";			
-		})
-		.attr("height",0+"px")
-		.style('z-index',90)
-		.transition()
-		.duration(durationTime)	
-        .attr("height",function() {
-			return DefenseMoveHeight + "px";
-        })
+//	var SecondNewBar = Followsvg
+//	    .append("rect")
+//        .attr("class", "rect")
+//		.style('fill','black')
+//        .attr("x",function()
+//        {
+//			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+//            return Width + "px";
+//        })
+//        .attr("y",function(){
+//			var Height = 2 * windowHeight * TopBlank + PreviousBarHeigh;
+//			return Height + "px";
+//		})
+//        .attr("width",function()
+//		{
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//            return Xlocation + "px";			
+//		})
+//		.attr("height",0+"px")
+//		.style('z-index',90)
+//		.transition()
+//		.duration(durationTime)	
+//        .attr("height",function() {
+//			return DefenseMoveHeight + "px";
+//        })
 	
 	PreviousBarHeigh = PreviousBarHeigh + DefenseMoveHeight;	
 	
@@ -264,36 +264,36 @@ function DrawFollowPart(Movies)
 			C22Y = ((3*windowHeight * TopBlank + PreviousBarHeigh)+HurtMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
-			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,Movies.TotalHurtMoves,"TotalHurtMoves");
+//			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,Movies.TotalHurtMoves,"TotalHurtMoves");
 			
 			i=i+Ichangenumber;
 		}
 	
-	var ThirdNewBar = Followsvg
-	    .append("rect")
-        .attr("class", "rect")
-		.style('fill','black')
-        .attr("x",function()
-        {
-			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth;
-            return Width + "px";
-        })
-        .attr("y",function(){
-			var Height = 3 * windowHeight * TopBlank + PreviousBarHeigh;
-			return Height + "px";
-		})
-        .attr("width",function()
-		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
-            return Xlocation + "px";			
-		})
-		.attr("height",0+"px")
-		.style('z-index',90)
-		.transition()
-		.duration(durationTime)	
-        .attr("height",function() {
-			return HurtMovesHeight + "px";
-        })	
+//	var ThirdNewBar = Followsvg
+//	    .append("rect")
+//        .attr("class", "rect")
+//		.style('fill','black')
+//        .attr("x",function()
+//        {
+//			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+//            return Width + "px";
+//        })
+//        .attr("y",function(){
+//			var Height = 3 * windowHeight * TopBlank + PreviousBarHeigh;
+//			return Height + "px";
+//		})
+//        .attr("width",function()
+//		{
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//            return Xlocation + "px";			
+//		})
+//		.attr("height",0+"px")
+//		.style('z-index',90)
+//		.transition()
+//		.duration(durationTime)	
+//        .attr("height",function() {
+//			return HurtMovesHeight + "px";
+//        })	
 	
 	PreviousBarHeigh = PreviousBarHeigh + HurtMovesHeight;	
 
@@ -340,36 +340,36 @@ function DrawFollowPart(Movies)
 			C22Y = ((windowHeight * (4*TopBlank + 1*TwodSecondTopBlank) + PreviousBarHeigh)+OtherMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"64,185,176"+')';
-			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,Movies.TotalOtherMoves,"TotalOtherMoves");
+//			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,Movies.TotalOtherMoves,"TotalOtherMoves");
 			
 			i=i+Ichangenumber;
 		}
 	
-	var FourthNewBar = Followsvg
-	    .append("rect")
-        .attr("class", "rect")
-		.style('fill','black')
-        .attr("x",function()
-        {
-			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth;
-            return Width + "px";
-        })
-        .attr("y",function(){
-			var Height = 1 * windowHeight * (4*TopBlank + 1*TwodSecondTopBlank) + PreviousBarHeigh;
-			return Height + "px";
-		})
-        .attr("width",function()
-		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
-            return Xlocation + "px";			
-		})
-		.attr("height",0+"px")
-		.style('z-index',90)	
-		.transition()
-		.duration(durationTime)	
-        .attr("height",function() {
-			return OtherMovesHeight + "px";
-        })	
+//	var FourthNewBar = Followsvg
+//	    .append("rect")
+//        .attr("class", "rect")
+//		.style('fill','black')
+//        .attr("x",function()
+//        {
+//			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+//            return Width + "px";
+//        })
+//        .attr("y",function(){
+//			var Height = 1 * windowHeight * (4*TopBlank + 1*TwodSecondTopBlank) + PreviousBarHeigh;
+//			return Height + "px";
+//		})
+//        .attr("width",function()
+//		{
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//            return Xlocation + "px";			
+//		})
+//		.attr("height",0+"px")
+//		.style('z-index',90)	
+//		.transition()
+//		.duration(durationTime)	
+//        .attr("height",function() {
+//			return OtherMovesHeight + "px";
+//        })	
 	
 	PreviousBarHeigh = PreviousBarHeigh + OtherMovesHeight;
 	PreviousBarHeigh = 0;
@@ -974,6 +974,9 @@ function DrawFollowPart(Movies)
 			ColorHue = "rgb"+'('+"255,58,129"+')';
 			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,HHeadNo,"ATKHHeadMoves");
 			
+			d3.selectAll("#ATKHHeadMoves")
+			.style("opacity",0.5);
+			
 			i=i+Ichangenumber;
 		}
 	
@@ -997,6 +1000,9 @@ function DrawFollowPart(Movies)
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
 			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,KHeadNo,"ATKKHeadMoves");
+			
+			d3.selectAll("#ATKKHeadMoves")
+			.style("opacity",0.5);
 			
 			i=i+Ichangenumber;
 		}
@@ -1022,6 +1028,9 @@ function DrawFollowPart(Movies)
 			ColorHue = "rgb"+'('+"104,187,223"+')';
 			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,BHeadNo,"DEFBHeadMoves");
 			
+			d3.selectAll("#DEFBHeadMoves")
+			.style("opacity",0.5);
+			
 			i=i+Ichangenumber;
 		}
 	
@@ -1045,6 +1054,9 @@ function DrawFollowPart(Movies)
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
 			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,EHeadNo,"DEFEHeadMoves");
+
+			d3.selectAll("#DEFEHeadMoves")
+			.style("opacity",0.5);			
 			
 			i=i+Ichangenumber;
 		}
@@ -1070,6 +1082,9 @@ function DrawFollowPart(Movies)
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
 			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,NBHHeadNo,"HNBHeadMoves");
+			
+			d3.selectAll("#HNBHeadMoves")
+			.style("opacity",0.5);				
 			
 			i=i+Ichangenumber;
 		}	
@@ -1097,6 +1112,9 @@ function DrawFollowPart(Movies)
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
 			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,BHHeadNo,"HBHeadMoves");
+			
+			d3.selectAll("#HBHeadMoves")
+			.style("opacity",0.5);			
 			
 			i=i+Ichangenumber;
 		}	
@@ -1421,6 +1439,9 @@ function DrawFollowPart(Movies)
 			ColorHue = "rgb"+'('+"255,58,129"+')';
 			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,HJointNo,"ATKHJointMoves");
 			
+			d3.selectAll("#ATKHJointMoves")
+			.style("opacity",0.5);
+			
 			i=i+Ichangenumber;
 		}
 	
@@ -1445,6 +1466,9 @@ function DrawFollowPart(Movies)
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
 			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,KJointNo,"ATKKJointMoves");
+
+			d3.selectAll("#ATKKJointMoves")
+			.style("opacity",0.5);			
 			
 			i=i+Ichangenumber;
 		}
@@ -1473,6 +1497,9 @@ function DrawFollowPart(Movies)
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
 			DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,ColorHue,StrokeWidthPX,NBJointNo,"HNBJointMoves");
+			
+			d3.selectAll("#HNBJointMoves")
+			.style("opacity",0.5);				
 			
 			i=i+Ichangenumber;
 		}	
@@ -1535,7 +1562,7 @@ function DrawFollowPart(Movies)
 	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').offsetWidth;
 	IconPositionY = (windowHeight*3*TopBlank + HeadMovesHeight + BodyMovesHeight + JointMovesHeight/2) - IconSizeLarge/2;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeLarge);
-	SecondTipTextSet("Hit on joint or capture",IconPositionX,IconPositionY+0.8*IconSizeLarge);	
+	SecondTipTextSet("Hit on joint or grab",IconPositionX,IconPositionY+0.8*IconSizeLarge);	
 		
 	PreviousBarHeigh = PreviousBarHeigh + JointMovesHeight;
 	PreviousBarHeigh = 0;	
@@ -1693,8 +1720,9 @@ function DrawFollowPart(Movies)
 			C10Y = ((windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + PHNBHeadtHeight) + PHBHeadtHeight/2/Bardis*i).toString();
 			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 1 * TopBlank)
-					+ PHHeadtHeight + PKHeadtHeight + PBHeadtHeight + PEHeadtHeight + PHNBHeadtHeight - HHeadHeight - KHeadHeight - BHeadHeight - EHeadHeight - NBHHeadHeight + PreviousBarHeigh)
-					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + PHNBHeadtHeight/2/Bardis*i).toString();
+					+ PHHeadtHeight + PKHeadtHeight + PBHeadtHeight + PEHeadtHeight + PHNBHeadtHeight 
+					- HHeadHeight - KHeadHeight - BHeadHeight - EHeadHeight - NBHHeadHeight + PreviousBarHeigh)
+					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + PHNBHeadtHeight + PHBHeadtHeight/2/Bardis*i).toString();
 			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PHHeadtHeight + PKHeadtHeight + PBHeadtHeight + PEHeadtHeight + PHNBHeadtHeight + PreviousBarHeigh)+ PHBHeadtHeight/2/Bardis*i).toString();
 

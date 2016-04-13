@@ -156,8 +156,8 @@ function ChangePieChart(MovieData,ClassName)
 
 function ChagePieChartDetail(Type,Value,TotalNumber)
 {
-	var OutR = windowHeight/11;
-	var InR = OutR - 20;
+	var OutR = 6*FontLittleSize;
+	var InR = OutR - 2*FontLittleSize;
 	var Pi = Math.PI;
 	
 	var ChangeAngle = 360 * Value/TotalNumber;
