@@ -30,6 +30,12 @@ function DeleteMoveNumberText()
 {
 	d3.select('#MoveNumberText')
 	.remove();
+	
+	d3.select('#MovesTitle')
+	.remove();
+	
+	d3.select('#MovesExplain')
+	.remove();
 	return null;
 }
 

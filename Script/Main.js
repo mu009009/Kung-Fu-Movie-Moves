@@ -48,7 +48,7 @@ var StarringName =null;
 var PosterName = PosterPosition + "The_Big_Boss.jpg";
 var MoviePosition = "data/Movie/";
 
-var durationTime = 1800;
+var durationTime = 1200;
 var TotalKungFunumber = null;
 
 var MovieData = null;
@@ -100,7 +100,7 @@ function dataLoaded(err,Movies)
 	if(KeyWord!="")
 		{
 			 
-		}	
+		}
 }
 
 // Change data to the Object
@@ -214,6 +214,7 @@ function parse(d)
 //			DrawLeftTimeBar(Movies.TKFTime,Movies.TOMovesTime,Movies.TPTime,Movies.TMoves,Movies.OMoveNo);
 //			DrawLeftTimeBar(d);
 			DrawFollowPart(d);
+			CreateSvg();
 		}
 	
 	return Movies;
@@ -602,6 +603,7 @@ function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datava
 			
 			ChangeText(Value);
 			ChangePieChart(MovieData,ClassName);
+			ChangeMovesTitleText(ClassName);
 		})
 		.on("mouseout",function(){
 			
@@ -612,6 +614,8 @@ function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datava
 			
 			ChangeText(TotalKungFunumber);
 			ChangePieCharOut(MovieData);
+			ChangeMovesTitleTextDetail("All Moves");
+			ChangeExplainText("The number below means all moves shown in this movie.");
 		})
 		.on("click",function()
 		{
