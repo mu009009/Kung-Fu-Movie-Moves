@@ -268,7 +268,7 @@ function TitleText(Type,MovieName,ProtagonistName)
 		.attr('y',function(){
 			return FontMiddleSize*12 + "px";
 		})
-		.text("A example of the " + Type + "Kung Fu movies.")
+		.text("A example of the " + Type + " Kung Fu movies.")
 		.style("font-size",FontMiddleSize+"px")
 		.style("fill","white")
 		.style("opacity",0)
@@ -283,7 +283,7 @@ function TitleText(Type,MovieName,ProtagonistName)
 		.attr('y',function(){
 			return FontMiddleSize*13.5 + "px";
 		})
-		.text("Click the path on the right to see movie clips")
+		.text("Click the path on the right to see different movie clips")
 		.style("font-size",FontMiddleSize+"px")
 		.style("fill","white")
 		.style("opacity",0)
