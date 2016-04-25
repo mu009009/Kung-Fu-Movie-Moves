@@ -960,6 +960,7 @@ function DrawPieChart(MovieData)
 			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
 			return CircleString;
 		})
+		.style("z-index",95)	
 		.style("opacity",0)
 		.on('mouseover',function()
 		{
@@ -1068,6 +1069,7 @@ function DrawPieChart(MovieData)
 		.text(function(d){
 			return "of all moves";
 		})
+		.style("z-index",90)
 		.style("opacity",0)
 		.transition()
 		.duration(durationTime)
