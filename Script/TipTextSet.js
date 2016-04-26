@@ -298,25 +298,25 @@ function TitleText(Type,MovieName,ProtagonistName)
 			}
 		else if(Type=="Tragedy")
 			{
-				TypeDescrbition1 = Type + " Kung Fu movies mainly to show the power of the Kung Fu,"
+				TypeDescrbition1 = Type + " Kung Fu movies mainly to show the power of Kung Fu,"
 			}
 		else if(Type=="Visual")
 			{
-				TypeDescrbition1 = Type + "Kung Fu movies mainly to show the elegant and the beauty of the Kung Fu,"
+				TypeDescrbition1 = Type + " Kung Fu movies mainly to show the elegant and the beauty of Kung Fu,"
 			}
 	
 		var TypeDescrbition2 = null;
 		if(Type=="Comedy")
 			{
-				TypeDescrbition2 = "to create a good people who will try his best to help his friend, even himself will be painful."
+				TypeDescrbition2 = "a good person who always tries his best to help his friends, even though he may be hurt in the process."
 			}
 		else if(Type=="Tragedy")
 			{
-				TypeDescrbition2 = "to create a Kung Fu hero in this kind of movie."
+				TypeDescrbition2 = "in order to create a Kung Fu hero."
 			}
 		else if(Type=="Visual")
 			{
-				TypeDescrbition2 = "to leave a strong impression of their Kung Fu to the movie viewers."
+				TypeDescrbition2 = "leaving a strong impression on viewers."
 			}	
 	
 		var TextPart1 = Title
