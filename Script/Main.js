@@ -615,7 +615,7 @@ function DrawPath(M0X,M0Y,C10X,C10Y,C12X,C12Y,C22X,C22Y,Color,StrokeWidth,Datava
 			ChangeText(TotalKungFunumber);
 			ChangePieCharOut(MovieData);
 			ChangeMovesTitleTextDetail("All Moves");
-			ChangeExplainText("The number below means all moves shown in this movie.");
+			ChangeExplainText("The number below means all moves shown in this movie.; This type of design capitalizes on our convention of reading from left to right. ;This webpage has three parts. The left-hand section provides the explanation ;with details for each section of moves. As this is the most important part, I ;placed it to be the first thing the user sees. Next is the pie chart, which mainly ;compares the proportions of the various moves used in the respective Kung ;Fu movies. The user is able to click in the center of this part to change the ;example movie to see the different data. I used a flow map for the main visual ;to show how the movie makers distributed the different kinds of Kung Fu ;moves in the movies and to illustrate the proportions of these moves.");
 		})
 		.on("click",function()
 		{
