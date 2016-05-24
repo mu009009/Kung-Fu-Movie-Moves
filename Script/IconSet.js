@@ -12,7 +12,7 @@ function SetIcon(IconName,PositionX,PositionY,R)
 	})
 	.style('margin-left',function()
 	{
-		var LeftPX = (document.getElementById('Main_Part').offsetWidth*0.31 + PositionX) + 'px';
+		var LeftPX = (document.getElementById('Main_Part').getBoundingClientRect().width*0.31 + PositionX) + 'px';
 		
 		return LeftPX;
 	})
