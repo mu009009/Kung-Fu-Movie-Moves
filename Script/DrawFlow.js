@@ -23,7 +23,7 @@ function DrawFollowPart(Movies)
 			return 69+"%";
 		})
         .attr("height", function(){
-			return document.getElementById('Main_Part').offsetHeight + "px";
+			return document.getElementById('Main_Part').getBoundingClientRect().height + "px";
 		})
         .style("margin-left",function(){
 			return 31+"%";
@@ -49,7 +49,7 @@ function DrawFollowPart(Movies)
 //		})
 //        .attr("width",function()
 //		{
-//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
 //            return Xlocation + "px";			
 //		})
 //		.style("z-index",90)
@@ -72,7 +72,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = (BlankWidth + Barwidth) * document.getElementById('Follow_Part').offsetWidth;
+			var Width = (BlankWidth + Barwidth) * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -81,7 +81,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -96,19 +96,19 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = (windowHeight * ImageMarginTop+AtackMoveHeight/2/Bardis*i).toString();
-			C10X = (((BlankWidth - BarBlank)/2 + Barwidth) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = (((BlankWidth - BarBlank)/2 + Barwidth) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = (windowHeight * ImageMarginTop+AtackMoveHeight/2/Bardis*i).toString();
-//			C11X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2 +Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+//			C11X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2 +Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 //			C11Y = (3/4*(windowHeight * (ImageMarginTop - TopBlank))+ windowHeight * TopBlank + AtackMoveHeight/2).toString();
-			C12X = (((BlankWidth - BarBlank)/2 + Barwidth) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = (((BlankWidth - BarBlank)/2 + Barwidth) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (ImageMarginTop - TopBlank))+ windowHeight * TopBlank + AtackMoveHeight/2/Bardis*i).toString();
-//			C20X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2 +Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+//			C20X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2 +Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 //			C20Y = (1/4*(windowHeight * (ImageMarginTop - TopBlank))+ windowHeight * TopBlank + AtackMoveHeight/2).toString();
-//			C21X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2 +Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+//			C21X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2 +Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 //			C21Y = (windowHeight * TopBlank + AtackMoveHeight/2).toString();
-			C22X = ((BlankWidth - BarBlank + Barwidth) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((BlankWidth - BarBlank + Barwidth) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = (windowHeight * TopBlank + AtackMoveHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -122,7 +122,7 @@ function DrawFollowPart(Movies)
 //		.style('fill','black')
 //        .attr("x",function()
 //        {
-//			var Width = (BlankWidth + Barwidth - 1 * BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+//			var Width = (BlankWidth + Barwidth - 1 * BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width;
 //            return Width + "px";
 //        })
 //        .attr("y",function(){
@@ -131,7 +131,7 @@ function DrawFollowPart(Movies)
 //		})
 //        .attr("width",function()
 //		{
-//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
 //            return Xlocation + "px";			
 //		})
 //		.attr("height",0+"px")
@@ -153,7 +153,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = (BlankWidth + Barwidth) * document.getElementById('Follow_Part').offsetWidth;
+			var Width = (BlankWidth + Barwidth) * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -162,7 +162,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -177,13 +177,13 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * ImageMarginTop+PreviousBarHeigh)+DefenseMoveHeight/2/Bardis*i).toString();
-			C10X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * ImageMarginTop+PreviousBarHeigh)+DefenseMoveHeight/2/Bardis*i).toString();
-			C12X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (ImageMarginTop - 2*TopBlank))+ windowHeight * 2 * TopBlank + PreviousBarHeigh + DefenseMoveHeight/2/Bardis*i).toString();
-			C22X = ((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((2*windowHeight * TopBlank + PreviousBarHeigh)+DefenseMoveHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -198,7 +198,7 @@ function DrawFollowPart(Movies)
 //		.style('fill','black')
 //        .attr("x",function()
 //        {
-//			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+//			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width;
 //            return Width + "px";
 //        })
 //        .attr("y",function(){
@@ -207,7 +207,7 @@ function DrawFollowPart(Movies)
 //		})
 //        .attr("width",function()
 //		{
-//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
 //            return Xlocation + "px";			
 //		})
 //		.attr("height",0+"px")
@@ -230,7 +230,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = (BlankWidth + Barwidth) * document.getElementById('Follow_Part').offsetWidth;
+			var Width = (BlankWidth + Barwidth) * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -239,7 +239,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -254,13 +254,13 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * ImageMarginTop+PreviousBarHeigh)+HurtMovesHeight/2/Bardis*i).toString();
-			C10X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * ImageMarginTop+PreviousBarHeigh)+HurtMovesHeight/2/Bardis*i).toString();
-			C12X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (ImageMarginTop - 3*TopBlank))+ windowHeight * 3 * TopBlank + PreviousBarHeigh + HurtMovesHeight/2/Bardis*i).toString();
-			C22X = ((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((3*windowHeight * TopBlank + PreviousBarHeigh)+HurtMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -275,7 +275,7 @@ function DrawFollowPart(Movies)
 //		.style('fill','black')
 //        .attr("x",function()
 //        {
-//			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+//			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width;
 //            return Width + "px";
 //        })
 //        .attr("y",function(){
@@ -284,7 +284,7 @@ function DrawFollowPart(Movies)
 //		})
 //        .attr("width",function()
 //		{
-//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
 //            return Xlocation + "px";			
 //		})
 //		.attr("height",0+"px")
@@ -306,7 +306,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = (BlankWidth + Barwidth) * document.getElementById('Follow_Part').offsetWidth;
+			var Width = (BlankWidth + Barwidth) * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -315,7 +315,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -330,13 +330,13 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * (ImageMarginTop)+PreviousBarHeigh)+OtherMovesHeight/2/Bardis*i).toString();
-			C10X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * (ImageMarginTop)+PreviousBarHeigh)+OtherMovesHeight/2/Bardis*i).toString();
-			C12X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = (((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (ImageMarginTop - 4*TopBlank - 1*TwodSecondTopBlank))+ windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank)  + PreviousBarHeigh + OtherMovesHeight/2/Bardis*i).toString();
-			C22X = ((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((windowHeight * (4*TopBlank + 1*TwodSecondTopBlank) + PreviousBarHeigh)+OtherMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"64,185,176"+')';
@@ -351,7 +351,7 @@ function DrawFollowPart(Movies)
 //		.style('fill','black')
 //        .attr("x",function()
 //        {
-//			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+//			var Width = (BlankWidth + Barwidth - BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width;
 //            return Width + "px";
 //        })
 //        .attr("y",function(){
@@ -360,7 +360,7 @@ function DrawFollowPart(Movies)
 //		})
 //        .attr("width",function()
 //		{
-//			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+//			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
 //            return Xlocation + "px";			
 //		})
 //		.attr("height",0+"px")
@@ -383,7 +383,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth +Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width +Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -392,7 +392,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -407,15 +407,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((BlankWidth + 2 * Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((BlankWidth + 2 * Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * TopBlank)+ HandMovesHeight/2/Bardis*i).toString();
-			C10X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * TopBlank)+ HandMovesHeight/2/Bardis*i).toString();
-			C12X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (SecondTopBlank - TopBlank))+ windowHeight * 1 * TopBlank + PreviousBarHeigh + HandMovesHeight/2/Bardis*i).toString();
-			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 1 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 1 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1*windowHeight * SecondTopBlank + PreviousBarHeigh)+HandMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -425,8 +425,8 @@ function DrawFollowPart(Movies)
 		}
 	
 	IconName = "HandATKKungFu";
-	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').offsetWidth;
-	if((document.getElementById(IconName).offsetHeight)>AtackMoveHeight/2)
+	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').getBoundingClientRect().width;
+	if((document.getElementById(IconName).getBoundingClientRect().height)>AtackMoveHeight/2)
 		{
 			IconPositionY = (windowHeight*TopBlank+AtackMoveHeight/2-IconSizeMiddle);
 		}
@@ -448,7 +448,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth +Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width +Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -457,7 +457,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -472,15 +472,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * TopBlank)+ PreviousBarHeigh + KickMovesHeight/2/Bardis*i).toString();
-			C10X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * TopBlank)+ PreviousBarHeigh + KickMovesHeight/2/Bardis*i).toString();
-			C12X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (1 * TwodSecondTopBlank + SecondTopBlank - TopBlank))+ windowHeight * 1 * TopBlank + PreviousBarHeigh + KickMovesHeight/2/Bardis*i).toString();
-			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 1 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 1 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * TwodSecondTopBlank + SecondTopBlank) + PreviousBarHeigh)+ KickMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -490,8 +490,8 @@ function DrawFollowPart(Movies)
 		}
 	
 	IconName = "KickATKKungFu";
-	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').offsetWidth;
-	if((document.getElementById(IconName).offsetHeight)>AtackMoveHeight/2)
+	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').getBoundingClientRect().width;
+	if((document.getElementById(IconName).getBoundingClientRect().height)>AtackMoveHeight/2)
 		{
 			IconPositionY = (windowHeight*TopBlank+AtackMoveHeight/2);
 		}
@@ -513,7 +513,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth +Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width +Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -522,7 +522,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -537,15 +537,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 2 * TopBlank)+ PreviousBarHeigh + BlockMovesHeight/2/Bardis*i).toString();
-			C10X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 2 * TopBlank)+ PreviousBarHeigh + BlockMovesHeight/2/Bardis*i).toString();
-			C12X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (2 * TwodSecondTopBlank + SecondTopBlank - 2 * TopBlank))+ windowHeight * 2 * TopBlank + PreviousBarHeigh + BlockMovesHeight/2/Bardis*i).toString();
-			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 1 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 1 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(2 * TwodSecondTopBlank + SecondTopBlank) + PreviousBarHeigh)+ BlockMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -555,8 +555,8 @@ function DrawFollowPart(Movies)
 		}
 	
 	IconName = "BlockDEFKungFu";
-	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').offsetWidth;
-	if((document.getElementById(IconName).offsetHeight)>DefenseMoveHeight/2)
+	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').getBoundingClientRect().width;
+	if((document.getElementById(IconName).getBoundingClientRect().height)>DefenseMoveHeight/2)
 		{
 			IconPositionY = (windowHeight*2*TopBlank+AtackMoveHeight+DefenseMoveHeight/2 - IconSizeMiddle);
 		}
@@ -579,7 +579,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth +Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width +Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -588,7 +588,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -603,15 +603,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 2 * TopBlank)+ PreviousBarHeigh + EvadeMovesHeight/2/Bardis*i).toString();
-			C10X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 2 * TopBlank)+ PreviousBarHeigh + EvadeMovesHeight/2/Bardis*i).toString();
-			C12X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (3 * TwodSecondTopBlank + SecondTopBlank - 2 * TopBlank))+ windowHeight * 2 * TopBlank + PreviousBarHeigh + EvadeMovesHeight/2/Bardis*i).toString();
-			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 1 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 1 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(3 * TwodSecondTopBlank + SecondTopBlank) + PreviousBarHeigh)+ EvadeMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -620,8 +620,8 @@ function DrawFollowPart(Movies)
 			i=i+Ichangenumber;
 		}
 	IconName = "EvadeDEFKungFu";
-	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').offsetWidth;
-	if((document.getElementById(IconName).offsetHeight)>DefenseMoveHeight/2)
+	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').getBoundingClientRect().width;
+	if((document.getElementById(IconName).getBoundingClientRect().height)>DefenseMoveHeight/2)
 		{
 			IconPositionY = (windowHeight*2*TopBlank+AtackMoveHeight+DefenseMoveHeight/2);
 		}
@@ -644,7 +644,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth +Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width +Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -653,7 +653,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -668,15 +668,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 3 * TopBlank)+ PreviousBarHeigh + NoBloodMovesHeight/2/Bardis*i).toString();
-			C10X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 3 * TopBlank)+ PreviousBarHeigh + NoBloodMovesHeight/2/Bardis*i).toString();
-			C12X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (4 * TwodSecondTopBlank + SecondTopBlank - 3 * TopBlank))+ windowHeight * 3 * TopBlank + PreviousBarHeigh + NoBloodMovesHeight/2/Bardis*i).toString();
-			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 1 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 1 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(4 * TwodSecondTopBlank + SecondTopBlank) + PreviousBarHeigh)+ NoBloodMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -686,8 +686,8 @@ function DrawFollowPart(Movies)
 		}	
 	
 	IconName = "Noblood";
-	IconPositionX = (BlankWidth - BarBlank + 3*Barwidth)*document.getElementById('Follow_Part').offsetWidth;
-	if((document.getElementById(IconName).offsetHeight)>HurtMovesHeight/2)
+	IconPositionX = (BlankWidth - BarBlank + 3*Barwidth)*document.getElementById('Follow_Part').getBoundingClientRect().width;
+	if((document.getElementById(IconName).getBoundingClientRect().height)>HurtMovesHeight/2)
 		{
 			IconPositionY = (windowHeight*3*TopBlank+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight/2-IconSizeLittle);
 		}
@@ -697,7 +697,7 @@ function DrawFollowPart(Movies)
 		}	
 //	IconPositionY = (windowHeight * 3 * TopBlank) + AtackMoveHeight + DefenseMoveHeight + NoBloodMovesHeight - 1.2*document.getElementById(IconName).offsetHeight;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeLittle);
-	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').offsetWidth;	
+	IconPositionX = (BlankWidth - BarBlank)*document.getElementById('Follow_Part').getBoundingClientRect().width;	
 	TipTextSet("No bleeding",IconPositionX,IconPositionY+0.9*IconSizeLittle);
 
 	PreviousBarHeigh = PreviousBarHeigh + NoBloodMovesHeight;
@@ -712,7 +712,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth +Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width +Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -721,7 +721,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -736,15 +736,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 3 * TopBlank)+ PreviousBarHeigh + BloodMovesHeight/2/Bardis*i).toString();
-			C10X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 3 * TopBlank)+ PreviousBarHeigh + BloodMovesHeight/2/Bardis*i).toString();
-			C12X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (5 * TwodSecondTopBlank + SecondTopBlank - 3 * TopBlank))+ windowHeight * 3 * TopBlank + PreviousBarHeigh + BloodMovesHeight/2/Bardis*i).toString();
-			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 1 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 1 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(5 * TwodSecondTopBlank + SecondTopBlank) + PreviousBarHeigh)+ BloodMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -754,8 +754,8 @@ function DrawFollowPart(Movies)
 		}
 	
 	IconName = "blood";
-	IconPositionX = (BlankWidth - BarBlank )*document.getElementById('Follow_Part').offsetWidth;
-	if((document.getElementById(IconName).offsetHeight)>HurtMovesHeight/2)
+	IconPositionX = (BlankWidth - BarBlank )*document.getElementById('Follow_Part').getBoundingClientRect().width;
+	if((document.getElementById(IconName).getBoundingClientRect().height)>HurtMovesHeight/2)
 		{
 			IconPositionY = (windowHeight*3*TopBlank+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight/2);
 		}
@@ -785,7 +785,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -794,7 +794,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -809,16 +809,16 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank))+ PreviousBarHeigh + PrepareMovesHeight/2/Bardis*i).toString();
-			C10X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank))+ PreviousBarHeigh + PrepareMovesHeight/2/Bardis*i).toString();
-			C12X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 1 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   ((2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth)+Barwidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 1 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   ((2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (6 * TwodSecondTopBlank + SecondTopBlank - 4 * TopBlank - 1*TwodSecondTopBlank))
 					+ windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank) + PreviousBarHeigh + PrepareMovesHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(6 * TwodSecondTopBlank + SecondTopBlank) + PreviousBarHeigh)+ PrepareMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"64,185,176"+')';
@@ -828,8 +828,8 @@ function DrawFollowPart(Movies)
 		}	
 	
 	IconName = "Prepare";
-	IconPositionX = (BlankWidth - BarBlank )*document.getElementById('Follow_Part').offsetWidth;
-	if((document.getElementById(IconName).offsetHeight)>OtherMovesHeight/2)
+	IconPositionX = (BlankWidth - BarBlank )*document.getElementById('Follow_Part').getBoundingClientRect().width;
+	if((document.getElementById(IconName).getBoundingClientRect().height)>OtherMovesHeight/2)
 		{
 			IconPositionY = (windowHeight*(4*TopBlank+1*TwodSecondTopBlank)+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight+OtherMovesHeight/2-IconSizeMiddle);
 		}
@@ -857,7 +857,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -866,7 +866,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -881,16 +881,16 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank))+ PreviousBarHeigh + JumpMovesHeight/2/Bardis*i).toString();
-			C10X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank))+ PreviousBarHeigh + JumpMovesHeight/2/Bardis*i).toString();
-			C12X = ((BlankWidth * document.getElementById('Follow_Part').offsetWidth + 1 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   ((2 * BlankWidth * document.getElementById('Follow_Part').offsetWidth)+Barwidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 1 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   ((2 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (7 * TwodSecondTopBlank + SecondTopBlank - 4 * TopBlank - 1*TwodSecondTopBlank))
 					+ windowHeight * (4 * TopBlank + 1*TwodSecondTopBlank) + PreviousBarHeigh + JumpMovesHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(7 * TwodSecondTopBlank + SecondTopBlank) + PreviousBarHeigh)+ JumpMovesHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"64,185,176"+')';
@@ -899,8 +899,8 @@ function DrawFollowPart(Movies)
 			i=i+Ichangenumber;
 		}
 	IconName = "Jump";
-	IconPositionX = (BlankWidth - BarBlank )*document.getElementById('Follow_Part').offsetWidth;
-	if((document.getElementById(IconName).offsetHeight)>OtherMovesHeight/2)
+	IconPositionX = (BlankWidth - BarBlank )*document.getElementById('Follow_Part').getBoundingClientRect().width;
+	if((document.getElementById(IconName).getBoundingClientRect().height)>OtherMovesHeight/2)
 		{
 			IconPositionY = (windowHeight*(4*TopBlank+1*TwodSecondTopBlank)+AtackMoveHeight+DefenseMoveHeight+HurtMovesHeight+OtherMovesHeight/2);
 		}
@@ -936,7 +936,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -945,7 +945,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -962,13 +962,13 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((2*BlankWidth + 2 * Barwidth) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((2*BlankWidth + 2 * Barwidth) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * SecondTopBlank)+ PreviousBarHeigh + HHeadHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth + 2 * Barwidth + BlankWidth/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((2*BlankWidth + 2 * Barwidth + BlankWidth/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 1 * SecondTopBlank)+ PreviousBarHeigh + HHeadHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth + 2*Barwidth + BlankWidth/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((2*BlankWidth + 2*Barwidth + BlankWidth/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (SecondTopBlank - TopBlank))+ windowHeight * 1 * TopBlank + PreviousBarHeigh + HHeadHeight/2/Bardis*i).toString();
-			C22X = ((3 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((3 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * TopBlank) + PreviousBarHeigh)+ HHeadHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -986,16 +986,16 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 1 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KHeadHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 1 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KHeadHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 1 * TwodSecondTopBlank - TopBlank)) + (HandMovesHeight - HHeadHeight)) + windowHeight * 1 * TopBlank + HHeadHeight + PreviousBarHeigh 
 					+ KHeadHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * TopBlank) + HHeadHeight + PreviousBarHeigh)+ KHeadHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1013,16 +1013,16 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 2 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KickMovesHeight + BHeadHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 2 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KickMovesHeight + BHeadHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 2 * TwodSecondTopBlank - TopBlank)) + (HandMovesHeight + KickMovesHeight - HHeadHeight - KHeadHeight)) 
 					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + PreviousBarHeigh + BHeadHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * TopBlank) + HHeadHeight + KHeadHeight + PreviousBarHeigh)+ BHeadHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -1040,16 +1040,16 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 3 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EHeadHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 3 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EHeadHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 3 * TwodSecondTopBlank - TopBlank)) + (HandMovesHeight + KickMovesHeight + BlockMovesHeight - HHeadHeight - KHeadHeight - BHeadHeight)) 
 					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + PreviousBarHeigh + EHeadHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * TopBlank) + HHeadHeight + KHeadHeight + BHeadHeight + PreviousBarHeigh)+ EHeadHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -1067,17 +1067,17 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 4 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NBHHeadHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 4 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NBHHeadHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 4 * TwodSecondTopBlank - TopBlank)) + (HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight
 																								  - HHeadHeight - KHeadHeight - BHeadHeight - EHeadHeight)) 
 					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + PreviousBarHeigh + NBHHeadHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * TopBlank) + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + PreviousBarHeigh)+ NBHHeadHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1095,19 +1095,19 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 5 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NoBloodMovesHeight
 				   + BHHeadHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 5 * TwodSecondTopBlank))+ PreviousBarHeigh + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NoBloodMovesHeight
 				   + BHHeadHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 5 * TwodSecondTopBlank - TopBlank)) + (HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NoBloodMovesHeight
 																								  - HHeadHeight - KHeadHeight - BHeadHeight - EHeadHeight - NBHHeadHeight)) 
 					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + NBHHeadHeight + PreviousBarHeigh + BHHeadHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * TopBlank) + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + NBHHeadHeight + PreviousBarHeigh)+ BHHeadHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1125,7 +1125,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = (3 * BlankWidth + 2*Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+			var Width = (3 * BlankWidth + 2*Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -1134,7 +1134,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -1146,10 +1146,10 @@ function DrawFollowPart(Movies)
         })
 	
 	IconName = "Head";
-	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').offsetWidth;
+	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').getBoundingClientRect().width;
 	IconPositionY = (windowHeight*TopBlank + HeadMovesHeight/2) - IconSizeLarge/2;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeLarge);
-	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').offsetWidth;
+	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').getBoundingClientRect().width;
 	SecondTipTextSet("Hit on head",IconPositionX,IconPositionY+0.8*IconSizeLarge);
 	
 	PreviousBarHeigh = PreviousBarHeigh + HeadMovesHeight;
@@ -1175,7 +1175,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -1184,7 +1184,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -1201,15 +1201,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * SecondTopBlank)+  HHeadHeight + HBodyHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * SecondTopBlank)+  HHeadHeight + HBodyHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (2 * TopBlank - SecondTopBlank) + PreviousBarHeigh - HHeadHeight )+ windowHeight * 1 * SecondTopBlank + HHeadHeight + HBodyHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(2 * TopBlank) + PreviousBarHeigh)+ HBodyHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1224,17 +1224,17 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 1 * TwodSecondTopBlank))+ KHeadHeight + HandMovesHeight + KBodyHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 1 * TwodSecondTopBlank))+ KHeadHeight + HandMovesHeight + KBodyHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (2 * TopBlank - SecondTopBlank - 1 * TwodSecondTopBlank) + PreviousBarHeigh + HBodyHeight - KHeadHeight - HandMovesHeight )
 					+ windowHeight * 1 * (SecondTopBlank + 1 * TwodSecondTopBlank)  
 					+ HandMovesHeight + KHeadHeight + KBodyHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(2 * TopBlank) + PreviousBarHeigh) + HBodyHeight + KBodyHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1249,16 +1249,16 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 2 * TwodSecondTopBlank)) + BHeadHeight + HandMovesHeight + KickMovesHeight + BBodyHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 2 * TwodSecondTopBlank)) + BHeadHeight + HandMovesHeight + KickMovesHeight + BBodyHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 2 * TwodSecondTopBlank - 2 * TopBlank) + (HandMovesHeight + KickMovesHeight + BHeadHeight - HeadMovesHeight - KBodyHeight - HBodyHeight))) 
 					+ windowHeight * 2 * TopBlank + HBodyHeight + KBodyHeight + PreviousBarHeigh + BBodyHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(2 * TopBlank) + HBodyHeight + KBodyHeight + PreviousBarHeigh)+ BBodyHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -1273,17 +1273,17 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 3 * TwodSecondTopBlank))+ HandMovesHeight + KickMovesHeight + BlockMovesHeight + EHeadHeight + EBodyHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 3 * TwodSecondTopBlank))+ HandMovesHeight + KickMovesHeight + BlockMovesHeight + EHeadHeight + EBodyHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 3 * TwodSecondTopBlank - 2 * TopBlank)) 
 					+ (HandMovesHeight + KickMovesHeight + BlockMovesHeight + EHeadHeight - PreviousBarHeigh - HBodyHeight - KBodyHeight - BBodyHeight)) 
 					+ windowHeight * 2 * TopBlank + HBodyHeight + KBodyHeight + BBodyHeight + PreviousBarHeigh + EBodyHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(2 * TopBlank) + HBodyHeight + KBodyHeight + BBodyHeight + PreviousBarHeigh)+ EBodyHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -1298,18 +1298,18 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 4 * TwodSecondTopBlank)) + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NBHHeadHeight + NBHBodyHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 4 * TwodSecondTopBlank)) + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NBHHeadHeight + NBHBodyHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 4 * TwodSecondTopBlank - 2 * TopBlank)) 
 						 + (HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NBHHeadHeight
 						- PreviousBarHeigh - HBodyHeight - KBodyHeight - BBodyHeight - EBodyHeight)) 
 					+ windowHeight * 2 * TopBlank + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + PreviousBarHeigh + NBHBodyHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(2 * TopBlank) + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + PreviousBarHeigh)+ NBHBodyHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1324,20 +1324,20 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 5 * TwodSecondTopBlank)) + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NoBloodMovesHeight
 				   + BHHeadHeight + BHBodyHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 5 * TwodSecondTopBlank)) + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NoBloodMovesHeight
 				   + BHHeadHeight + BHBodyHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 5 * TwodSecondTopBlank - 2 * TopBlank))
 						 + (HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NoBloodMovesHeight + BHHeadHeight
 							- PreviousBarHeigh - HBodyHeight - KBodyHeight - BBodyHeight - EBodyHeight - NBHBodyHeight)) 
 					+ windowHeight * 2 * TopBlank + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + NBHBodyHeight + PreviousBarHeigh + BHBodyHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(2 * TopBlank) + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + NBHBodyHeight + PreviousBarHeigh)+ BHBodyHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1352,7 +1352,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = (3 * BlankWidth + 2 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+			var Width = (3 * BlankWidth + 2 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -1361,7 +1361,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -1373,7 +1373,7 @@ function DrawFollowPart(Movies)
         })
 	
 	IconName = "Body";
-	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').offsetWidth;
+	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').getBoundingClientRect().width;
 	IconPositionY = (windowHeight*2*TopBlank + HeadMovesHeight + BodyMovesHeight/2) - IconSizeLarge/2;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeLarge);
 	SecondTipTextSet("Hit on body",IconPositionX,IconPositionY+0.8*IconSizeLarge);	
@@ -1398,7 +1398,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Width = 3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -1407,7 +1407,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -1424,16 +1424,16 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * SecondTopBlank) +  HHeadHeight + HBodyHeight + HJointHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * SecondTopBlank) +  HHeadHeight + HBodyHeight + HJointHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (3 * TopBlank - SecondTopBlank) + PreviousBarHeigh - HHeadHeight - HBodyHeight )+ windowHeight * 1 * SecondTopBlank + HHeadHeight + HBodyHeight
 					+ HJointHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(3 * TopBlank) + PreviousBarHeigh)+ HJointHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1451,17 +1451,17 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 1 * TwodSecondTopBlank))+ KHeadHeight + KBodyHeight + HandMovesHeight + KJointHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 1 * TwodSecondTopBlank))+ KHeadHeight + KBodyHeight + HandMovesHeight + KJointHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*(windowHeight * (3 * TopBlank - SecondTopBlank - 1 * TwodSecondTopBlank) + PreviousBarHeigh + HJointHeight - KHeadHeight - KBodyHeight - HandMovesHeight )
 					+ windowHeight * 1 * (SecondTopBlank + 1 * TwodSecondTopBlank)  
 					+ HandMovesHeight + KHeadHeight + KBodyHeight + KJointHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(3 * TopBlank) + PreviousBarHeigh) + HJointHeight + KJointHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1479,20 +1479,20 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 4 * TwodSecondTopBlank)) + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight 
 				   + NBHHeadHeight + NBHBodyHeight + NBHJointHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 4 * TwodSecondTopBlank)) + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight 
 				   + NBHHeadHeight + NBHBodyHeight + NBHJointHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 4 * TwodSecondTopBlank - 3 * TopBlank)) 
 						 + (HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NBHHeadHeight + NBHBodyHeight
 						- PreviousBarHeigh - HJointHeight - KJointHeight)) 
 					+ windowHeight * 3 * TopBlank + HJointHeight + KJointHeight + PreviousBarHeigh + NBHJointHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(3 * TopBlank) + HJointHeight + KJointHeight + PreviousBarHeigh)+ NBHJointHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1510,20 +1510,20 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = (2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = (2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * (SecondTopBlank+ 5 * TwodSecondTopBlank)) + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NoBloodMovesHeight
 				   + BHHeadHeight + BHBodyHeight + BHJointHeight/2/Bardis*i).toString();
-			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C10X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C10Y = ((windowHeight * 1 * (SecondTopBlank+ 5 * TwodSecondTopBlank)) + HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NoBloodMovesHeight
 				   + BHHeadHeight + BHBodyHeight + BHJointHeight/2/Bardis*i).toString();
-			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth)+
-				   (BlankWidth * document.getElementById('Follow_Part').offsetWidth)/2).toString();
+			C12X = ((2*BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width)+
+				   (BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width)/2).toString();
 			C12Y = (1/2*((windowHeight * (SecondTopBlank + 5 * TwodSecondTopBlank - 3 * TopBlank))
 						 + (HandMovesHeight + KickMovesHeight + BlockMovesHeight + EvadeMovesHeight + NoBloodMovesHeight + BHHeadHeight + BHBodyHeight
 							- PreviousBarHeigh - HJointHeight - KJointHeight - NBHJointHeight)) 
 					+ windowHeight * 3 * TopBlank + HJointHeight + KJointHeight + NBHJointHeight + PreviousBarHeigh + BHJointHeight/2/Bardis*i).toString();
-			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').offsetWidth + 2 * Barwidth * document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = (3 * BlankWidth * document.getElementById('Follow_Part').getBoundingClientRect().width + 2 * Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(3 * TopBlank) + HJointHeight + KJointHeight + NBHJointHeight + PreviousBarHeigh)+ BHJointHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"218,216,167"+')';
@@ -1538,7 +1538,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = (3 * BlankWidth + 2 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth;
+			var Width = (3 * BlankWidth + 2 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -1547,7 +1547,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -1559,7 +1559,7 @@ function DrawFollowPart(Movies)
         })
 	
 	IconName = "JointCapture";
-	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').offsetWidth;
+	IconPositionX = (3*BlankWidth - 2*Barwidth )*document.getElementById('Follow_Part').getBoundingClientRect().width;
 	IconPositionY = (windowHeight*3*TopBlank + HeadMovesHeight + BodyMovesHeight + JointMovesHeight/2) - IconSizeLarge/2;
 	SetIcon(IconName,IconPositionX,IconPositionY,IconSizeLarge);
 	SecondTipTextSet("Hit on joint or grab",IconPositionX,IconPositionY+0.8*IconSizeLarge);	
@@ -1578,7 +1578,7 @@ function DrawFollowPart(Movies)
 		.style('fill','black')
         .attr("x",function()
         {
-			var Width = (4 * BlankWidth + 2 * Barwidth) * document.getElementById('Follow_Part').offsetWidth;
+			var Width = (4 * BlankWidth + 2 * Barwidth) * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Width + "px";
         })
         .attr("y",function(){
@@ -1587,7 +1587,7 @@ function DrawFollowPart(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('Follow_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('Follow_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
 		.attr("height",0+"px")
@@ -1604,13 +1604,13 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * TopBlank) + PHHeadtHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 1 * TopBlank) + PHHeadtHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 1 * TopBlank) + PreviousBarHeigh)+ windowHeight * 1 * TopBlank + PHHeadtHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh)+ PHHeadtHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1625,13 +1625,13 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * TopBlank + HHeadHeight) + PKHeadtHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 1 * TopBlank + HHeadHeight) + PKHeadtHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 1 * TopBlank) + PHHeadtHeight - HHeadHeight + PreviousBarHeigh)+ windowHeight * 1 * TopBlank + HHeadHeight + PKHeadtHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) +PHHeadtHeight+ PreviousBarHeigh)+ PKHeadtHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1646,14 +1646,14 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight) + PBHeadtHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight) + PBHeadtHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 1 * TopBlank) + PHHeadtHeight + PKHeadtHeight - HHeadHeight - KHeadHeight + PreviousBarHeigh)
 					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + PBHeadtHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) +PHHeadtHeight + PKHeadtHeight + PreviousBarHeigh)+ PBHeadtHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -1668,15 +1668,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight) + PEHeadtHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight) + PEHeadtHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 1 * TopBlank)
 					+ PHHeadtHeight + PKHeadtHeight + PBHeadtHeight - HHeadHeight - KHeadHeight - BHeadHeight + PreviousBarHeigh)
 					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + PEHeadtHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) +PHHeadtHeight + PKHeadtHeight + PBHeadtHeight + PreviousBarHeigh)+ PEHeadtHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -1691,15 +1691,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight) + PHNBHeadtHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight) + PHNBHeadtHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 1 * TopBlank)
 					+ PHHeadtHeight + PKHeadtHeight + PBHeadtHeight +PEHeadtHeight - HHeadHeight - KHeadHeight - BHeadHeight - EHeadHeight + PreviousBarHeigh)
 					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + PHNBHeadtHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PHHeadtHeight + PKHeadtHeight + PBHeadtHeight + PEHeadtHeight + PreviousBarHeigh)+ PHNBHeadtHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1714,16 +1714,16 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + PHNBHeadtHeight) + PHBHeadtHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + PHNBHeadtHeight) + PHBHeadtHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 1 * TopBlank)
 					+ PHHeadtHeight + PKHeadtHeight + PBHeadtHeight + PEHeadtHeight + PHNBHeadtHeight 
 					- HHeadHeight - KHeadHeight - BHeadHeight - EHeadHeight - NBHHeadHeight + PreviousBarHeigh)
 					+ windowHeight * 1 * TopBlank + HHeadHeight + KHeadHeight + BHeadHeight + EHeadHeight + PHNBHeadtHeight + PHBHeadtHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PHHeadtHeight + PKHeadtHeight + PBHeadtHeight + PEHeadtHeight + PHNBHeadtHeight + PreviousBarHeigh)+ PHBHeadtHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1740,15 +1740,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + PHBodytHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + PHBodytHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 2 * TopBlank) 
 					+ PreviousBarHeigh - HeadMovesHeight)
 					+ windowHeight * 2 * TopBlank + HeadMovesHeight + PHBodytHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh)+ PHBodytHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1765,15 +1765,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + PKBodytHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + PKBodytHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 2 * TopBlank) 
 					+ PreviousBarHeigh  - HeadMovesHeight - HBodyHeight)
 					+ windowHeight * 2 * TopBlank + HeadMovesHeight + HBodyHeight + PKBodytHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh )+ PKBodytHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1790,15 +1790,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + KBodyHeight + PBBodytHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + KBodyHeight + PBBodytHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 2 * TopBlank) 
 					+ PreviousBarHeigh  - HeadMovesHeight - HBodyHeight - KBodyHeight)
 					+ windowHeight * 2 * TopBlank + HeadMovesHeight + HBodyHeight + KBodyHeight + PBBodytHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh )+ PBBodytHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -1815,15 +1815,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + KBodyHeight + BBodyHeight + PEBodytHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + KBodyHeight + BBodyHeight + PEBodytHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 2 * TopBlank) 
 					+ PreviousBarHeigh  - HeadMovesHeight - HBodyHeight - KBodyHeight - BBodyHeight)
 					+ windowHeight * 2 * TopBlank + HeadMovesHeight + HBodyHeight + KBodyHeight + BBodyHeight + PEBodytHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh )+ PEBodytHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"104,187,223"+')';
@@ -1840,15 +1840,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + PHNBBodytHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + PHNBBodytHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 2 * TopBlank) 
 					+ PreviousBarHeigh  - HeadMovesHeight - HBodyHeight - KBodyHeight - BBodyHeight - EBodyHeight)
 					+ windowHeight * 2 * TopBlank + HeadMovesHeight + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + PHNBBodytHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh )+ PHNBBodytHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1865,15 +1865,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + NBHBodyHeight + PHBBodytHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 2 * TopBlank) + HeadMovesHeight + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + NBHBodyHeight + PHBBodytHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 2 * TopBlank) 
 					+ PreviousBarHeigh  - HeadMovesHeight - HBodyHeight - KBodyHeight - BBodyHeight - EBodyHeight - NBHBodyHeight)
 					+ windowHeight * 2 * TopBlank + HeadMovesHeight + HBodyHeight + KBodyHeight + BBodyHeight + EBodyHeight + NBHBodyHeight + PHBBodytHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh )+ PHBBodytHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1890,15 +1890,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 3 * TopBlank) + HeadMovesHeight + BodyMovesHeight + PHJointHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 3 * TopBlank) + HeadMovesHeight + BodyMovesHeight + PHJointHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 3 * TopBlank) 
 					+ PreviousBarHeigh - HeadMovesHeight - BodyMovesHeight)
 					+ windowHeight * 3 * TopBlank + HeadMovesHeight + BodyMovesHeight + PHJointHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh)+ PHJointHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1915,15 +1915,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 3 * TopBlank) + HeadMovesHeight + BodyMovesHeight + HJointHeight + PKJointHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 3 * TopBlank) + HeadMovesHeight + BodyMovesHeight + HJointHeight + PKJointHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 3 * TopBlank) 
 					+ PreviousBarHeigh - HeadMovesHeight - BodyMovesHeight - HJointHeight)
 					+ windowHeight * 3 * TopBlank + HeadMovesHeight + BodyMovesHeight + HJointHeight + PKJointHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh)+ PKJointHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"255,58,129"+')';
@@ -1940,15 +1940,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 3 * TopBlank) + HeadMovesHeight + BodyMovesHeight + HJointHeight + KJointHeight + PHNBJointHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 3 * TopBlank) + HeadMovesHeight + BodyMovesHeight + HJointHeight + KJointHeight + PHNBJointHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 3 * TopBlank) 
 					+ PreviousBarHeigh - HeadMovesHeight - BodyMovesHeight - HJointHeight - KJointHeight)
 					+ windowHeight * 3 * TopBlank + HeadMovesHeight + BodyMovesHeight + HJointHeight + KJointHeight + PHNBJointHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh)+ PHNBJointHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1965,15 +1965,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth + BarBlank) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * 3 * TopBlank) + HeadMovesHeight + BodyMovesHeight + HJointHeight + KJointHeight + PHNBJointHeight + PHBJointHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * 3 * TopBlank) + HeadMovesHeight + BodyMovesHeight + HJointHeight + KJointHeight + PHNBJointHeight + PHBJointHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - 3 * TopBlank) 
 					+ PreviousBarHeigh - HeadMovesHeight - BodyMovesHeight - HJointHeight - KJointHeight - PHNBJointHeight)
 					+ windowHeight * 3 * TopBlank + HeadMovesHeight + BodyMovesHeight + HJointHeight + KJointHeight + PHNBJointHeight + PHBJointHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh)+ PHBJointHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"281,216,167"+')';
@@ -1990,15 +1990,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth ) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth ) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * (3 * TopBlank + SecondTopBlank)) + HeadMovesHeight + BodyMovesHeight + JointMovesHeight + TPPrepareHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * (3 * TopBlank + SecondTopBlank)) + HeadMovesHeight + BodyMovesHeight + JointMovesHeight + TPPrepareHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - (3 * TopBlank + SecondTopBlank)) 
 					+ PreviousBarHeigh - HeadMovesHeight - BodyMovesHeight - JointMovesHeight)
 					+ windowHeight * (3 * TopBlank + SecondTopBlank) + HeadMovesHeight + BodyMovesHeight + JointMovesHeight + TPPrepareHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh)+ TPPrepareHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"64,185,176"+')';
@@ -2015,15 +2015,15 @@ function DrawFollowPart(Movies)
 	var i = 1;
 	while(i<=19)
 		{	
-			M0X = ((3*BlankWidth + 3 * Barwidth ) * document.getElementById('Follow_Part').offsetWidth).toString();
+			M0X = ((3*BlankWidth + 3 * Barwidth ) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			M0Y = ((windowHeight * (3 * TopBlank + SecondTopBlank + TwodSecondTopBlank)) + HeadMovesHeight + BodyMovesHeight + JointMovesHeight + PrepareMovesHeight + TPJumpHeight/2/Bardis*i).toString();
-			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C10X = ((3*BlankWidth + 3*Barwidth + BlankWidth/2 + BarBlank/2)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C10Y = ((windowHeight * (3 * TopBlank + SecondTopBlank + TwodSecondTopBlank)) + HeadMovesHeight + BodyMovesHeight + JointMovesHeight + PrepareMovesHeight + TPJumpHeight/2/Bardis*i).toString();
-			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').offsetWidth).toString();
+			C12X = ((3*BlankWidth + 3 * Barwidth + BlankWidth/2 + BarBlank/2) * document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C12Y = (1/2*(windowHeight * (1 * SecondTopBlank - (3 * TopBlank + SecondTopBlank + TwodSecondTopBlank)) 
 					+ PreviousBarHeigh - HeadMovesHeight - BodyMovesHeight - JointMovesHeight - PrepareMovesHeight)
 					+ windowHeight * (3 * TopBlank + SecondTopBlank + TwodSecondTopBlank) + HeadMovesHeight + BodyMovesHeight + JointMovesHeight + PrepareMovesHeight + TPJumpHeight/2/Bardis*i).toString();
-			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').offsetWidth).toString();
+			C22X = ((4 * BlankWidth + 2*Barwidth)* document.getElementById('Follow_Part').getBoundingClientRect().width).toString();
 			C22Y = ((1 * windowHeight *(1 * SecondTopBlank) + PreviousBarHeigh)+ TPJumpHeight/2/Bardis*i).toString();
 
 			ColorHue = "rgb"+'('+"64,185,176"+')';

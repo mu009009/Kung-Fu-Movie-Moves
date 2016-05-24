@@ -58,8 +58,8 @@ d3.select('#Main_Part')
 .style("margin-top",windowHeight * (marginTopForMidPart) + BlankHieght +"px")
 .style("height", windowHeight * (1-marginTopForMidPart) - BlankHieght+ "px");
 
-MainH = document.getElementById('Main_Part').offsetHeight;
-MainW = document.getElementById('Main_Part').offsetWidth;
+MainH = document.getElementById('Main_Part').getBoundingClientRect().height;
+MainW = document.getElementById('Main_Part').getBoundingClientRect().width;
 
 //Change the size for each part when the Size of window changed.
 window.onresize = function(){
@@ -75,8 +75,8 @@ window.onresize = function(){
 		.style("margin-top",windowHeight * marginTopForMidPart +"px")
 		.style("height", windowHeight * (1-marginTopForMidPart) + "px");
 	
-		MainH = document.getElementById('Main_Part').offsetHeight;
-		MainW = document.getElementById('Main_Part').offsetWidth;
+		MainH = document.getElementById('Main_Part').getBoundingClientRect().height;
+		MainW = document.getElementById('Main_Part').getBoundingClientRect().width;
     }
 
 console.log('ModuleLevel');
@@ -210,7 +210,7 @@ function parse(d)
 			MoveNumberText(TotalKungFunumber);
 			ForeverText();
 			ExplainText();
-			FullPosterHeight = document.getElementById('MoviePoster').offsetHeight;
+			FullPosterHeight = document.getElementById('MoviePoster').getBoundingClientRect().height;
 //			DrawLeftTimeBar(Movies.TKFTime,Movies.TOMovesTime,Movies.TPTime,Movies.TMoves,Movies.OMoveNo);
 //			DrawLeftTimeBar(d);
 			DrawFollowPart(d);
@@ -257,7 +257,7 @@ function SetClips()
 		return FontLittleSize + "px";
 	})
 	.attr("height",function(){
-		var Height = document.getElementById('MovieBackground').offsetWidth/16*9;
+		var Height = document.getElementById('MovieBackground').getBoundingClientRect().width/16*9;
 		return Height + "px";
 	})
 //	.style("opacity",0)
@@ -271,7 +271,7 @@ function SetClips()
 	}
 	d3.select('#MovieClips')
 	.style("margin-top",function(){
-		var MiddleStart = document.getElementById('MovieBackground').offsetHeight - document.getElementById('MovieClips').offsetHeight; 
+		var MiddleStart = document.getElementById('MovieBackground').getBoundingClientRect().height - document.getElementById('MovieClips').getBoundingClientRect().height; 
 		return FontMiddleSize*15 + MiddleStart/2 + "px";
 	})
 	.style("margin-left",function(){
@@ -281,7 +281,7 @@ function SetClips()
 	d3.select('#Play')
 	.style("margin-top",function(){
 	
-		return FontMiddleSize*16 + document.getElementById('MovieBackground').offsetHeight + "px";
+		return FontMiddleSize*16 + document.getElementById('MovieBackground').getBoundingClientRect().height + "px";
 	})
 	.style("margin-left",function(){
 		return FontLittleSize + "px";
@@ -311,7 +311,7 @@ function SetClips()
 	d3.select('#Pause')
 	.style("margin-top",function(){
 	
-		return FontMiddleSize*16 + document.getElementById('MovieBackground').offsetHeight + "px";
+		return FontMiddleSize*16 + document.getElementById('MovieBackground').getBoundingClientRect().height + "px";
 	})
 	.style("margin-left",function(){
 		return FontLittleSize*7 + "px"; /*+ document.getElementById('MovieBackground').offsetWidth - FontLittleSize*18 + "px";*/
@@ -364,7 +364,7 @@ function ChangeClips(ClipName)
 		d3.select('#MovieClips')
 		.attr("src",ChangeClipsName)
 		.style("margin-top",function(){
-			var MiddleStart = document.getElementById('MovieBackground').offsetHeight - document.getElementById('MovieClips').offsetHeight; 
+			var MiddleStart = document.getElementById('MovieBackground').getBoundingClientRect().height - document.getElementById('MovieClips').getBoundingClientRect().height; 
 			return FontMiddleSize*15 + MiddleStart + "px";
 		});
 	}
@@ -402,7 +402,7 @@ function DrawLeftTimeBar(Movies)
 			return 24.3+"%";
 		})
         .attr("height", function(){
-			return document.getElementById('MoviePoster').offsetHeight + "px";
+			return document.getElementById('MoviePoster').getBoundingClientRect().height + "px";
 		})
         .style("margin-left",function(){
 			return 0+"%";
@@ -419,13 +419,13 @@ function DrawLeftTimeBar(Movies)
         .style('fill',"rgb"+'('+'0,16,78'+')')
         .attr("x",function()
         {
-			var Xlocation = (1-Barwidth) * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = (1-Barwidth) * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation + "px";
         })
         .attr("y",0)
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
         .attr("height",function() {
@@ -441,7 +441,7 @@ function DrawLeftTimeBar(Movies)
         .style('fill',"rgb"+'('+'64,185,176'+')')
         .attr("x",function()
         {
-			var Xlocation = (1-2*Barwidth) * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = (1-2*Barwidth) * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation - BarBlankWidth + "px";
         })
         .attr("y",function(){
@@ -449,7 +449,7 @@ function DrawLeftTimeBar(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
         .attr("height",function() {
@@ -465,7 +465,7 @@ function DrawLeftTimeBar(Movies)
         .style('fill',"rgb"+'('+'254,113,95'+')')
         .attr("x",function()
         {
-			var Xlocation = (1-3*Barwidth) * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = (1-3*Barwidth) * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation - 2*BarBlankWidth + "px";
         })
         .attr("y",function(){
@@ -473,7 +473,7 @@ function DrawLeftTimeBar(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = Barwidth * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = Barwidth * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
         .attr("height",function() {
@@ -491,7 +491,7 @@ function DrawLeftTimeBar(Movies)
 		.attr("class","rect")
         .style('fill',"rgb"+'('+'0,16,78'+')')
 		.attr("x",function(){
-			var Xlocation = 0 + BarBlankWidth + Barwidth * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = 0 + BarBlankWidth + Barwidth * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation + "px";
 		})
 		.attr("y",function(){
@@ -500,7 +500,7 @@ function DrawLeftTimeBar(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = (1 * Barwidth ) * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = (1 * Barwidth ) * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
         .attr("height",function() {
@@ -515,7 +515,7 @@ function DrawLeftTimeBar(Movies)
 		.attr("class","rect")
         .style('fill',"rgb"+'('+'64,185,176'+')')
 		.attr("x",function(){
-			var Xlocation = (1-8*Barwidth) * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = (1-8*Barwidth) * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return 0 + "px";
 		})
 		.attr("y",function(){
@@ -523,7 +523,7 @@ function DrawLeftTimeBar(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = (1 * Barwidth ) * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = (1 * Barwidth ) * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
         .attr("height",function() {
@@ -536,7 +536,7 @@ function DrawLeftTimeBar(Movies)
         .style('fill',"rgb(84,84,94)")
         .attr("x",function()
         {
-			var Xlocation = (1-8*Barwidth-0.1) * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = (1-8*Barwidth-0.1) * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return 0 + "px";
         })
         .attr("y",function(){
@@ -544,7 +544,7 @@ function DrawLeftTimeBar(Movies)
 		})
         .attr("width",function()
 		{
-			var Xlocation = (10 * Barwidth + 0.1) * document.getElementById('TimeBar_Part').offsetWidth;
+			var Xlocation = (10 * Barwidth + 0.1) * document.getElementById('TimeBar_Part').getBoundingClientRect().width;
             return Xlocation + "px";			
 		})
         .attr("height",function() {
@@ -909,7 +909,7 @@ function DrawPieChart(MovieData)
 		{
 			console.log(i);
 			var Xposition = window.innerWidth*0.06;
-			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + 1.5*(i)*OutR;
+			var Yposition = document.getElementById('CircleSvg').getBoundingClientRect().height*0.135*(i+1) + 1.5*(i)*OutR;
 			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
 			console.log(CircleString);
 			return CircleString;
@@ -956,7 +956,7 @@ function DrawPieChart(MovieData)
 		.attr("transform", function(d,i)
 		{
 			var Xposition = window.innerWidth*0.06;
-			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.135*(i+1) + 1.5*(i)*OutR;
+			var Yposition = document.getElementById('CircleSvg').getBoundingClientRect().height*0.135*(i+1) + 1.5*(i)*OutR;
 			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
 			return CircleString;
 		})
@@ -1014,7 +1014,7 @@ function DrawPieChart(MovieData)
 		.attr("transform", function(d,i)
 		{
 			var Xposition = window.innerWidth*0.06;
-			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.128*(i+1) + (i)*1.5*OutR;
+			var Yposition = document.getElementById('CircleSvg').getBoundingClientRect().height*0.128*(i+1) + (i)*1.5*OutR;
 			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
 			return CircleString;
 		})
@@ -1038,7 +1038,7 @@ function DrawPieChart(MovieData)
 		.attr("transform", function(d,i)
 		{
 			var Xposition = window.innerWidth*0.06;
-			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.128*(i+1) + (i)*1.5*OutR + FontMiddleSize*1.2;
+			var Yposition = document.getElementById('CircleSvg').getBoundingClientRect().height*0.128*(i+1) + (i)*1.5*OutR + FontMiddleSize*1.2;
 			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
 			return CircleString;
 		})
@@ -1062,7 +1062,7 @@ function DrawPieChart(MovieData)
 		.attr("transform", function(d,i)
 		{
 			var Xposition = window.innerWidth*0.06;
-			var Yposition = document.getElementById('CircleSvg').offsetHeight*0.128*(i+1) + (i)*1.5*OutR + FontMiddleSize*2.4;
+			var Yposition = document.getElementById('CircleSvg').getBoundingClientRect().height*0.128*(i+1) + (i)*1.5*OutR + FontMiddleSize*2.4;
 			var CircleString = "translate(" + Xposition.toString() + "," + Yposition.toString() + ")";
 			return CircleString;
 		})
